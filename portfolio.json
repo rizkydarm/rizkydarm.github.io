@@ -1,0 +1,82 @@
+{
+	"name": "Rizky Darmawan",
+	"location": "Jakarta, Indonesia",
+	"email": "rizkydarm.000@gmail.com",
+	"phone": "+62 813 8722 9330",
+	"linkedin": "linkedin.com/in/rizkydarm",
+	"github": "github.com/rizkydarm",
+	"website": "rizkydarm.github.io",
+	"summary": "Software Engineer with 5+ years of experience designing and shipping cross-platform mobile applications (Flutter, Swift, Kotlin) for enterprise clients in banking, telecom, and fintech. Currently architecting AI-driven automation systems using n8n, FastAPI, and LLM agents, with a strong foundation in cloud deployment, CI/CD, and Agile delivery. Proven track record of collaborating with cross-functional teams to deliver secure, scalable products used by thousands of active users.",
+	"skills": [
+		{ "name": "Dart", "icon": "🎯", "level": "95%" },
+		{ "name": "Kotlin", "icon": "🟡", "level": "90%" },
+		{ "name": "Swift", "icon": "🍎", "level": "85%" },
+		{ "name": "Python", "icon": "🐍", "level": "80%" },
+		{ "name": "TypeScript", "icon": "⚡", "level": "75%" },
+		{ "name": "Flutter", "icon": "📱", "level": "90%" },
+		{ "name": "React", "icon": "⚛️", "level": "70%" },
+		{ "name": "FastAPI", "icon": "🚀", "level": "85%" },
+		{ "name": "Docker", "icon": "🐳", "level": "75%" },
+		{ "name": "PostgreSQL", "icon": "🗄️", "level": "70%" },
+		{ "name": "LLM Agents", "icon": "🤖", "level": "65%" },
+		{ "name": "UI/UX Design", "icon": "🎨", "level": "60%" }
+	],
+	"projects": [
+		{
+			"title": "AI-Powered Retail Automation Agent",
+			"description": "Built an autonomous workflow that syncs inventory, processes customer inquiries, and generates daily sales reports. Reduced manual admin work by ~15 hrs/week for pilot UMKM clients; deployed on Linux VPS with health monitoring & auto-restart scripts.",
+			"tags":["FastAPI", "n8n", "Gemini", "Docker", "Telegram"],
+			"link": "github.com/rizkydarm/retail-ai-agent",
+			"gradient": "linear-gradient(135deg, #f093fb, #f5576c)",
+			"icon": "🛒"
+		},
+		{
+			"title": "Cross-Platform Finance Tracker",
+			"description": "Designed a personal finance dashboard with real-time sync, OCR receipt scanning, and AI-powered spending categorization. Implemented offline-first architecture, CI/CD via GitHub Actions, and unit/widget tests covering 85% of core logic.",
+			"tags": ["Flutter", "Firebase", "Supabase", "Clean Architecture"],
+			"link": "rizky-port.web.app/projects/finance-tracker",
+			"gradient": "linear-gradient(135deg, #4facfe, #00f2fe)",
+			"icon": "💰"
+		},
+		{
+			"title": "Mobile Banking App",
+			"description":
+				"Maintained and scaled a banking merchant app integrated with Mandiri Bank's core systems, serving 100K+ monthly active users. Achieved 99.5% crash-free sessions by implementing Sentry monitoring and optimizing memory usage.",
+			"tags": ["Kotlin", "Swift", "Xamarin MAUI", "Banking API"],
+			"link": "#",
+			"gradient": "linear-gradient(135deg, #43e97b, #38f9d7)",
+			"icon": "🏦"
+		}
+	],
+	"experience": [
+		{
+			"title": "AI Automation & Backend Developer",
+			"company": "ISeller IT Consultant",
+			"location": "Remote",
+			"period": "Aug 2024 – Present",
+			"points": [
+				"Architected and deployed a secure, Docker-containerized backend (FastAPI + n8n) on Linux VPS, automating cross-platform workflows (Telegram, Notion, Google Sheets) powered by Gemini LLM agents.",
+				"Reduced manual data processing and inventory management time by ~40% for 50+ UMKM retail/F&B clients through automated sync pipelines and AI-driven reporting.",
+				"Implemented monitoring, logging, and rollback strategies, achieving 99.5% uptime and streamlining client onboarding from 3 days to <1 day."
+			]
+		},
+		{
+			"title": "Mobile Engineer (Android & iOS)",
+			"company": "ISeller",
+			"location": "Jakarta, Indonesia",
+			"period": "Jun 2024 – Dec 2024",
+			"points": [
+				"Maintained and scaled a banking merchant app (Xamarin MAUI/Kotlin/Swift) integrated with Mandiri Bank's core systems, serving 100K+ monthly active users.",
+				"Achieved 99.5% crash-free sessions by implementing Sentry monitoring, optimizing memory usage, and enforcing rigorous QA cycles.",
+				"Delivered 15+ sprint features in Agile/Scrum environment, reducing bug resolution time by 30% through improved test coverage and CI/CD pipeline optimization (Azure DevOps, Bitrise)."
+			]
+		}
+	],
+	"education": {
+		"degree": "B.Sc. in Computer Science",
+		"school": "Universitas Pendidikan Indonesia",
+		"period": "Aug 2018 – Sep 2023",
+		"gpa": "3.43/4.00",
+		"thesis": "AI Computer Vision for Mobile Autonomous Soccer Robot (PyTorch, OpenCV, Vision Transformers)"
+	}
+}

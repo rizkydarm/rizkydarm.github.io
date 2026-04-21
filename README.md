@@ -12,7 +12,6 @@
 
 </div>
 
-![Portfolio Icon](src/images/icon.png)
 ![Portfolio Avatar](static/favicon.png)
 
 ---
