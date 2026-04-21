@@ -12,6 +12,9 @@
 
 </div>
 
+![Portfolio Icon](src/images/icon.png)
+![Portfolio Avatar](static/images/avatar.png)
+
 ---
 
 ## 🎯 Overview
