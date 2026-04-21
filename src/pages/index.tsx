@@ -558,7 +558,7 @@ const IndexPage: React.FC<PageProps> = () => {
 		<GlobalStyles>
 			{/* Navbar */}
 			<Navbar>
-				<img src="https://rizkydarm.github.io/images/favicon.png" alt="Avatar" />
+				<img src="https://rizkydarm.github.io/avatar.jpg" alt="Avatar" />
 				<NavContainer>
 					<Logo variant="h6">
 						Rizky<span>Darmawan</span>
