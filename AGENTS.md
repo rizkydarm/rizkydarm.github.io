@@ -77,20 +77,20 @@
 
 # REPO-SPECIFIC AGENT RULES
 
-### Dev Commands
+## Dev Commands
 - `bun run develop` — dev server at localhost:8000
 - `bun run build` — production build
 - `bun run serve` — serve production build locally
 - `bun run clean` — clear Gatsby cache
 - `bun run typecheck` — TypeScript type checking
 
-### Architecture
+## Architecture
 - Gatsby 5 + React 18 + TypeScript + Material UI
 - `src/pages/` — Gatsby page components (index.tsx, 404.tsx)
 - `docs/` — production build output (served on GitHub Pages)
 - `gatsby-config.ts` — site config with `graphqlTypegen: true`
 
-### Stack
+## Stack
 - Uses bun (bun.lock) alongside npm
 - No tests configured
 - `strict: true` TypeScript mode

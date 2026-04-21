@@ -401,7 +401,7 @@ const injectGlobalStyles = () => {
 
 // Portfolio data from portfolio.md
 const portfolioData = {
-	name: "MOCHAMAD RIZKY DARMAWAN",
+	name: "Rizky Darmawan",
 	location: "Jakarta, Indonesia",
 	email: "rizkydarm.000@gmail.com",
 	phone: "+62 813 8722 9330",
@@ -558,6 +558,7 @@ const IndexPage: React.FC<PageProps> = () => {
 		<GlobalStyles>
 			{/* Navbar */}
 			<Navbar>
+				<img src="https://rizkydarm.github.io/images/favicon.png" alt="Avatar" />
 				<NavContainer>
 					<Logo variant="h6">
 						Rizky<span>Darmawan</span>
