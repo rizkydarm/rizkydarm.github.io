@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "@mui/material/styles";
 
 interface Dot {
 	x: number;
@@ -34,10 +35,33 @@ function initDots(width: number, height: number): Dot[] {
 	return dots;
 }
 
+const extractRgb = (colorStr: string) => {
+	let str = colorStr;
+	if (str.startsWith("#")) {
+		if (str.length === 4) {
+			str = "#" + str[1] + str[1] + str[2] + str[2] + str[3] + str[3];
+		}
+		const r = parseInt(str.slice(1, 3), 16);
+		const g = parseInt(str.slice(3, 5), 16);
+		const b = parseInt(str.slice(5, 7), 16);
+		return { r, g, b };
+	}
+	const matches = str.match(/\d+/g);
+	if (matches && matches.length >= 3) {
+		return {
+			r: parseInt(matches[0], 10),
+			g: parseInt(matches[1], 10),
+			b: parseInt(matches[2], 10),
+		};
+	}
+	return { r: 0, g: 0, b: 0 };
+};
+
 const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = true }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const dotsRef = useRef<Dot[]>([]);
 	const mouseRef = useRef({ x: -1000, y: -1000 });
+	const theme = useTheme();
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -76,19 +100,15 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 			mouseRef.current = { x: -1000, y: -1000 };
 		};
 
-		// Color definitions based on mode
-		const DARK_BG = { r: 0, g: 0, b: 0 };
-		const LIGHT_BG = { r: 255, g: 255, b: 255 };
-		const DARK_DOT = { r: 255, g: 255, b: 255 };
-		const LIGHT_DOT = { r: 100, g: 100, b: 100 };
-		const GLOW_COLOR = { r: 220, g: 230, b: 255 };
+		const bgColor = extractRgb(theme.palette.background.default);
+		const dotBaseColor = extractRgb(isDarkMode ? theme.palette.text.primary : theme.palette.text.secondary);
+		const glowColor = extractRgb(isDarkMode ? theme.palette.primary.main : theme.palette.text.primary);
+		const highlightRgb = extractRgb(isDarkMode ? theme.palette.common.white : theme.palette.common.black);
+		const highlightColorStr = `${highlightRgb.r}, ${highlightRgb.g}, ${highlightRgb.b}`;
 
 		const draw = () => {
 			const { x: mx, y: my } = mouseRef.current;
 			const dpr = window.devicePixelRatio || 1;
-
-			const bgColor = isDarkMode ? DARK_BG : LIGHT_BG;
-			const dotBaseColor = isDarkMode ? DARK_DOT : LIGHT_DOT;
 
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -114,7 +134,6 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 				const alpha = 0.3 + 0.7 * glowIntensity;
 
 				// Interpolate between dot color and glow color
-				const glowColor = isDarkMode ? GLOW_COLOR : dotBaseColor;
 				const r = Math.round(
 					dotBaseColor.r + (glowColor.r - dotBaseColor.r) * glowIntensity,
 				);
@@ -170,7 +189,6 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 
 				if (glowIntensity > 0.3) {
 					const highlightAlpha = (glowIntensity - 0.3) / 0.7;
-					const highlightColor = isDarkMode ? "255, 255, 255" : "0, 0, 0";
 					ctx.beginPath();
 					ctx.arc(
 						dot.x * dpr,
@@ -179,7 +197,7 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 						0,
 						Math.PI * 2,
 					);
-					ctx.fillStyle = `rgba(${highlightColor}, ${highlightAlpha * 0.6})`;
+					ctx.fillStyle = `rgba(${highlightColorStr}, ${highlightAlpha * 0.6})`;
 					ctx.fill();
 				}
 			}
@@ -204,7 +222,7 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 			window.removeEventListener("touchend", handleTouchEnd);
 			cancelAnimationFrame(animationId);
 		};
-	}, [isDarkMode]);
+	}, [theme, isDarkMode]);
 
 	return (
 		<canvas

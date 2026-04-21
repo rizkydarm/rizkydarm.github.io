@@ -22,8 +22,37 @@ const IndexPage: React.FC<PageProps> = () => {
 				palette: {
 					mode: isDarkMode ? "dark" : "light",
 					background: {
-						default: isDarkMode ? "#000000" : "#ffffff",
-						paper: isDarkMode ? "#1a1a1a" : "#f5f5f5",
+						default: isDarkMode ? "#131313" : "#ffffff",
+						paper: isDarkMode ? "#1C1B1B" : "#f5f5f5",
+					},
+					primary: {
+						main: "#19D9B6",
+						contrastText: "#ffffff",
+					},
+					secondary: {
+						main: "#28DFBB",
+					},
+					text: {
+						primary: isDarkMode ? "#E5E2E1" : "#131313",
+						secondary: isDarkMode ? "#C6C6C6" : "#474747",
+					},
+					divider: isDarkMode ? "rgba(71, 71, 71, 0.2)" : "rgba(0, 0, 0, 0.12)",
+				},
+				typography: {
+					fontFamily: '"Fira Code", monospace',
+					h3: {
+						fontFamily: '"Roboto Mono", monospace',
+						letterSpacing: "-0.02em",
+					},
+					body1: {
+						fontFamily: '"Fira Code", monospace',
+						lineHeight: 1.6,
+					},
+					body2: {
+						fontFamily: '"Fira Code", monospace',
+					},
+					subtitle2: {
+						fontFamily: '"Fira Code", monospace',
 					},
 				},
 			}),
@@ -43,7 +72,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
 			{/* Main Content */}
 			<Box sx={{ pt: "100px", px: 3 }}>
-				<Typography variant="h3" sx={{ mb: 4, color: isDarkMode ? "#fff" : "#000" }}>
+				<Typography variant="h3" sx={{ mb: 4, color: "text.primary" }}>
 					Welcome to my Portfolio
 				</Typography>
 			</Box>
@@ -54,5 +83,10 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head: HeadFC = () => (
-	<title>{`Rizky Darmawan | Software Engineer`}</title>
+	<>
+		<title>{`Rizky Darmawan | Software Engineer`}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+	</>
 );

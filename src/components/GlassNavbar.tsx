@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 
 interface GlassNavbarProps {
@@ -12,6 +13,7 @@ const AVATAR_URL = "/avatar.jpg";
 
 const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) => {
 	const [scrolled, setScrolled] = useState(false);
+	const theme = useTheme();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -23,19 +25,15 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 
 	const navItems = ["Projects", "Skills", "Contact"];
 
-	const bgColor = isDarkMode
-		? scrolled
-			? "rgba(20, 20, 25, 0.6)"
-			: "rgba(15, 15, 20, 0.35)"
-		: scrolled
-			? "rgba(255, 255, 255, 0.65)"
-			: "rgba(255, 255, 255, 0.35)";
+	const bgColor = scrolled
+		? alpha(theme.palette.background.paper, 0.6)
+		: alpha(theme.palette.background.default, 0.35);
 
-	const textColor = isDarkMode ? "rgba(255, 255, 255, 0.6)" : "rgba(0, 0, 0, 0.6)";
-	const textHoverColor = isDarkMode ? "rgba(255, 255, 255, 0.95)" : "rgba(0, 0, 0, 0.95)";
-	const navHoverBg = isDarkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)";
-	const borderColor = isDarkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.1)";
-	const avatarBorder = isDarkMode ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)";
+	const textColor = alpha(theme.palette.text.primary, 0.6);
+	const textHoverColor = theme.palette.text.primary;
+	const navHoverBg = alpha(theme.palette.text.primary, 0.08);
+	const borderColor = theme.palette.divider;
+	const avatarBorder = alpha(theme.palette.text.primary, 0.15);
 
 	return (
 		<nav
@@ -58,15 +56,13 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 					width: "100%",
 					maxWidth: "1200px",
 					borderRadius: "1rem",
-					border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"}`,
+					border: `1px solid ${borderColor}`,
 					backdropFilter: "blur(20px) saturate(200%)",
 					WebkitBackdropFilter: "blur(20px) saturate(200%)",
-					background: isDarkMode
-						? `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%), ${bgColor}`
-						: `linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%)`,
+					backgroundColor: bgColor,
 					boxShadow: scrolled
-						? "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-						: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+						? `0 8px 32px ${alpha(theme.palette.common.black, 0.3)}, inset 0 1px 0 ${alpha(theme.palette.common.white, 0.1)}`
+						: `0 4px 24px ${alpha(theme.palette.common.black, 0.2)}, inset 0 1px 0 ${alpha(theme.palette.common.white, 0.15)}`,
 					transition: "all 0.5s ease",
 				}}
 			>
@@ -91,9 +87,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 								justifyContent: "center",
 								overflow: "hidden",
 								transition: "transform 0.3s",
-								backgroundColor: isDarkMode
-									? "rgba(255, 255, 255, 0.05)"
-									: "rgba(0, 0, 0, 0.05)",
+								backgroundColor: alpha(theme.palette.text.primary, 0.05),
 								border: `1px solid ${borderColor}`,
 								"&:hover": { transform: "scale(1.1)" },
 							}}
@@ -106,11 +100,11 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 						</Box>
 						<Typography
 							sx={{
-								color: isDarkMode ? "#fff" : "#000",
+								color: "text.primary",
 								fontWeight: 600,
 								fontSize: "1rem",
 								letterSpacing: "-0.01em",
-								textShadow: isDarkMode ? "0 0 20px rgba(255,255,255,0.1)" : "none",
+								textShadow: isDarkMode ? `0 0 20px ${alpha(theme.palette.text.primary, 0.1)}` : "none",
 								display: { xs: "none", sm: "block" },
 							}}
 						>
@@ -121,36 +115,42 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 					{/* Center: Navigation Links + Theme Toggle */}
 					<Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
 						{navItems.map((item) => (
-							<Box
+							<Button
 								key={item}
-								component="a"
 								href={`#${item.toLowerCase()}`}
 								sx={{
-									position: "relative",
 									px: 2,
-									py: 1,
+									py: 0.5,
 									borderRadius: "0.75rem",
 									fontSize: "0.875rem",
 									fontWeight: 500,
 									color: textColor,
-									textDecoration: "none",
+									textTransform: "none",
+									minWidth: "auto",
 									transition: "all 0.3s",
 									"&:hover": {
 										color: textHoverColor,
 										backgroundColor: navHoverBg,
+										transform: "scale(1.1)",
 									},
 								}}
 							>
 								{item}
-							</Box>
+							</Button>
 						))}
 
 						{/* Theme Toggle */}
 						<IconButton
 							onClick={toggleTheme}
 							sx={{
-								color: isDarkMode ? "#fff" : "#000",
+								color: "text.primary",
 								ml: 1,
+								transition: "all 0.3s",
+								"&:hover": {
+									color: textHoverColor,
+									backgroundColor: navHoverBg,
+									transform: "scale(1.1)",
+								},
 							}}
 						>
 							{isDarkMode ? <Brightness7 /> : <Brightness4 />}
@@ -158,39 +158,23 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 					</Box>
 
 					{/* Right: Avatar Circle */}
-					<Box sx={{ position: "relative", cursor: "pointer" }}>
-						<Box
-							component="img"
-							src={AVATAR_URL}
-							alt="Avatar"
-							sx={{
-								width: 36,
-								height: 36,
-								borderRadius: "50%",
-								objectFit: "cover",
-								border: `2px solid ${avatarBorder}`,
-								boxShadow: isDarkMode
-									? "0 0 12px rgba(255, 255, 255, 0.05)"
-									: "0 0 12px rgba(0, 0, 0, 0.1)",
-								transition: "transform 0.3s",
-								"&:hover": { transform: "scale(1.1)" },
-							}}
-						/>
-						<Box
-							sx={{
-								position: "absolute",
-								bottom: -2,
-								right: -2,
-								width: 12,
-								height: 12,
-								borderRadius: "50%",
-								border: "2px solid",
-								borderColor: isDarkMode ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.5)",
-								backgroundColor: "#34d399",
-								boxShadow: "0 0 8px rgba(52, 211, 153, 0.6)",
-							}}
-						/>
-					</Box>
+					<Box
+						component="img"
+						src={AVATAR_URL}
+						alt="Avatar"
+						sx={{
+							width: 36,
+							height: 36,
+							borderRadius: "50%",
+							objectFit: "cover",
+							position: "relative", 
+							cursor: "pointer",
+							border: `2px solid ${avatarBorder}`,
+							boxShadow: `0 0 12px ${alpha(theme.palette.text.primary, 0.05)}`,
+							transition: "transform 0.3s",
+							"&:hover": { transform: "scale(1.1)" },
+						}}
+					/>
 				</Box>
 			</Box>
 		</nav>

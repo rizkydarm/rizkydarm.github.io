@@ -29,7 +29,7 @@ The typography scale relies on the tension between the technical `Roboto Mono` a
 
 *   **The Display Scale:** Use `display-lg` (3.5rem) and `display-md` (2.75rem) in `robotoMono` for hero headers. These should be set with tight letter-spacing (-0.02em) to look like high-end editorial print.
 *   **The Narrative Scale:** `body-lg` (1rem) in `firaCode` is the workhorse. It must have generous line-height (1.6) to ensure maximum readability against the dark background.
-*   **The Technical Scale:** `label-md` and `label-sm` in `inter` are reserved for metadata, tags, and code snippets.
+*   **The Technical Scale:** `label-md` and `label-sm` in `firaCode` are reserved for metadata, tags, and code snippets.
 
 **Hierarchy Tip:** Use `on-surface-variant` (#C6C6C6) for secondary body text to create a clear visual gap between "Headline" and "Support" content without changing font weight.
 
