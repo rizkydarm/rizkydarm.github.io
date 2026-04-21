@@ -27,6 +27,7 @@ Welcome to my personal portfolio! This project showcases my work, skills, and ex
 | 📘 **TypeScript** | Type-safe JavaScript for better development experience |
 | 🎨 **Material UI** | Beautiful, responsive component library |
 | 💅 **Emotion** | CSS-in-JS styling solution |
+| 🌐 **GitHub Pages** | Automatic deployment on every push
 
 ## ✨ Features
 
@@ -70,7 +71,7 @@ Your site is now running at `http://localhost:8000`! 🎉
 ```
 .
 ├── src/           # 📝 Source code
-├── docs/          # 📚 Documentation
+├── docs/          # 📚 Copy from public/ for github pages deployment
 ├── public/        # 📁 Static assets
 ├── gatsby-config.ts  # ⚙️ Gatsby configuration
 └── package.json   # 📦 Dependencies
@@ -87,7 +88,7 @@ This portfolio is automatically deployed to **GitHub Pages** on every push to th
 ## 💬 Get In Touch
 
 [![Email](https://img.shields.io/badge/📧-Email-D14836?style=flat-square)](mailto:your.email@example.com)
-[![LinkedIn](https://img.shields.io/badge/🔗-LinkedIn-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![LinkedIn](https://img.shields.io/badge/🔗-LinkedIn-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/rizkydarm)
 
 **⭐ Star this repo if you like it!** 
 
