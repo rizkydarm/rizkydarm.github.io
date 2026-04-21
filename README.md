@@ -1,49 +1,94 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+<div align="center">
 
-## 🚀 Quick start
+# 🚀 Rizky Darm Portfolio
 
-1.  **Create a Gatsby site.**
+**✨ A modern, blazing-fast personal portfolio website built with Gatsby & React**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+[![GitHub](https://img.shields.io/badge/GitHub-rizkyeky-181717?logo=github)](https://github.com/rizkyeky)
+[![Website](https://img.shields.io/badge/🌐-Live%20Demo-4CAF50)](https://rizkydarm.github.io)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Gatsby](https://img.shields.io/badge/Gatsby-663399?logo=gatsby&logoColor=white)
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+</div>
 
-2.  **Start developing.**
+---
 
-    Navigate into your new site’s directory and start it up.
+## 🎯 Overview
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Welcome to my personal portfolio! This project showcases my work, skills, and experience as a developer. Built with modern web technologies for optimal performance and user experience.
 
-3.  **Open the code and start customizing!**
+## �️ Tech Stack
 
-    Your site is now running at http://localhost:8000!
+| Technology | Description |
+|------------|-------------|
+| ⚛️ **React 18** | Modern UI library for building interactive interfaces |
+| 🏃 **Gatsby 5** | Static site generator for blazing-fast performance |
+| 📘 **TypeScript** | Type-safe JavaScript for better development experience |
+| 🎨 **Material UI** | Beautiful, responsive component library |
+| 💅 **Emotion** | CSS-in-JS styling solution |
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+## ✨ Features
 
-4.  **Learn more**
+- ⚡ **Lightning Fast** - Optimized static generation with Gatsby
+- 📱 **Responsive Design** - Looks great on all devices
+- 🎨 **Modern UI** - Clean, professional Material Design aesthetic
+- 🌙 **Dark Mode** - Easy on the eyes, day or night
+- 🎯 **SEO Optimized** - Built-in best practices for search engines
+- ♿ **Accessible** - WCAG compliant for inclusive experiences
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## 🚀 Quick Start
 
-## 🚀 Quick start (Netlify)
+```bash
+# Clone the repository
+git clone https://github.com/rizkyeky/rizkydarm.github.io.git
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+# Navigate to project
+cd rizkydarm.github.io
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+# Install dependencies
+npm install
+
+# Start development server
+npm run develop
+```
+
+Your site is now running at `http://localhost:8000`! 🎉
+
+## 📦 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run develop` | 🧪 Start development server |
+| `npm run build` | 🔨 Build for production |
+| `npm run serve` | 🌐 Serve production build locally |
+| `npm run clean` | 🧹 Clean Gatsby cache |
+| `npm run typecheck` | ✅ Run TypeScript type checking |
+
+## 📂 Project Structure
+
+```
+.
+├── src/           # 📝 Source code
+├── docs/          # 📚 Documentation
+├── public/        # 📁 Static assets
+├── gatsby-config.ts  # ⚙️ Gatsby configuration
+└── package.json   # 📦 Dependencies
+```
+
+## 🌐 Deployment
+
+This portfolio is automatically deployed to **GitHub Pages** on every push to the main branch.
+
+---
+
+<div align="center">
+
+## 💬 Get In Touch
+
+[![Email](https://img.shields.io/badge/📧-Email-D14836?style=flat-square)](mailto:your.email@example.com)
+[![LinkedIn](https://img.shields.io/badge/🔗-LinkedIn-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/yourprofile)
+
+**⭐ Star this repo if you like it!** 
+
+</div>
