@@ -12,6 +12,7 @@ import {
 import ParticleBackground from "../components/ParticleBackground";
 import PolkadotBackground from "../components/PolkadotBackground";
 import GlassNavbar from "../components/GlassNavbar";
+import HeroSection from "../components/HeroSection";
 
 const IndexPage: React.FC<PageProps> = () => {
 	const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -71,11 +72,7 @@ const IndexPage: React.FC<PageProps> = () => {
 			<GlassNavbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
 			{/* Main Content */}
-			<Box sx={{ pt: "100px", px: 3 }}>
-				<Typography variant="h3" sx={{ mb: 4, color: "text.primary" }}>
-					Welcome to my Portfolio
-				</Typography>
-			</Box>
+			<HeroSection />
 		</ThemeProvider>
 	);
 };
