@@ -23,7 +23,15 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const navItems = ["Projects", "Skills", "Contact"];
+	const navItems = ["Home", "Projects", "Skills", "Contact"];
+
+	const handleNavClick = (item: string) => {
+		const targetId = item.toLowerCase();
+		const element = document.getElementById(targetId);
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
 
 	const bgColor = scrolled
 		? alpha(theme.palette.background.paper, 0.6)
@@ -117,7 +125,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 						{navItems.map((item) => (
 							<Button
 								key={item}
-								href={`#${item.toLowerCase()}`}
+								onClick={() => handleNavClick(item)}
 								sx={{
 									px: 2,
 									py: 0.5,
@@ -128,6 +136,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 									textTransform: "none",
 									minWidth: "auto",
 									transition: "all 0.3s",
+									cursor: "pointer",
 									"&:hover": {
 										color: textHoverColor,
 										backgroundColor: navHoverBg,

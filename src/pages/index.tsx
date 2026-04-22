@@ -17,6 +17,7 @@ import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
+import ContactSection from "../components/ContactSection";
 
 const IndexPage: React.FC<PageProps> = () => {
 	const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -123,12 +124,18 @@ const IndexPage: React.FC<PageProps> = () => {
 					scrollBehavior: "smooth",
 				}}
 			>
-				<Box sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+				<Box id="home" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
 					<HeroSection />
 				</Box>
-				<ProjectsSection />
-				<SkillsSection />
-				<Section id="contact" title="Contact" />
+				<Box id="projects" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+					<ProjectsSection />
+				</Box>
+				<Box id="skills" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+					<SkillsSection />
+				</Box>
+				<Box id="contact" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+					<ContactSection />
+				</Box>
 			</Box>
 		</ThemeProvider>
 	);
