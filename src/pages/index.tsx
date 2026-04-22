@@ -16,6 +16,7 @@ import PolkadotBackground from "../components/PolkadotBackground";
 import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
+import SkillsSection from "../components/SkillsSection";
 
 const IndexPage: React.FC<PageProps> = () => {
 	const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -126,7 +127,7 @@ const IndexPage: React.FC<PageProps> = () => {
 					<HeroSection />
 				</Box>
 				<ProjectsSection />
-				<Section id="skills" title="Skills" />
+				<SkillsSection />
 				<Section id="contact" title="Contact" />
 			</Box>
 		</ThemeProvider>
