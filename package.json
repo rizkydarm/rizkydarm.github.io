@@ -27,7 +27,8 @@
     "gatsby-plugin-mdx": "^5.16.0",
     "gatsby-plugin-typescript": "^5.16.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-glider": "^5.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",

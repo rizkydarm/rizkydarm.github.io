@@ -50,10 +50,10 @@ git clone https://github.com/rizkyeky/rizkydarm.github.io.git
 cd rizkydarm.github.io
 
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run develop
+bun run develop
 ```
 
 Your site is now running at `http://localhost:8000`! 🎉
@@ -62,11 +62,11 @@ Your site is now running at `http://localhost:8000`! 🎉
 
 | Command | Description |
 |---------|-------------|
-| `npm run develop` | 🧪 Start development server |
-| `npm run build` | 🔨 Build for production |
-| `npm run serve` | 🌐 Serve production build locally |
-| `npm run clean` | 🧹 Clean Gatsby cache |
-| `npm run typecheck` | ✅ Run TypeScript type checking |
+| `bun run develop` | 🧪 Start development server |
+| `bun run build` | 🔨 Build for production |
+| `bun run serve` | 🌐 Serve production build locally |
+| `bun run clean` | 🧹 Clean Gatsby cache |
+| `bun run typecheck` | ✅ Run TypeScript type checking |
 
 ## 📂 Project Structure
 

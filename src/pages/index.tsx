@@ -4,7 +4,9 @@ import {
 	Box,
 	Typography,
 	CssBaseline,
+	alpha,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import {
 	createTheme,
 	ThemeProvider,
@@ -13,6 +15,7 @@ import ParticleBackground from "../components/ParticleBackground";
 import PolkadotBackground from "../components/PolkadotBackground";
 import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
+import ProjectsSection from "../components/ProjectsSection";
 
 const IndexPage: React.FC<PageProps> = () => {
 	const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -64,6 +67,45 @@ const IndexPage: React.FC<PageProps> = () => {
 		setIsDarkMode((prev) => !prev);
 	};
 
+
+	const Section: React.FC<{ id: string; title: string; isLast?: boolean }> = ({ id, title, isLast }) => {
+		const sectionTheme = useTheme();
+		return (
+			<Box
+				id={id}
+				sx={{
+					position: "relative",
+					zIndex: 10,
+					minHeight: "100vh",
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					px: 3,
+					scrollSnapAlign: "start",
+					scrollSnapStop: "always",
+				}}
+			>
+				<Typography
+					variant="h1"
+					sx={{
+						fontFamily: '"Roboto Mono", monospace',
+						fontSize: { xs: "2.5rem", md: "4rem", lg: "5rem" },
+						fontWeight: 700,
+						letterSpacing: "-0.02em",
+						color: "transparent",
+						backgroundImage: `linear-gradient(135deg, ${sectionTheme.palette.primary.main}, ${sectionTheme.palette.text.primary})`,
+						backgroundClip: "text",
+						WebkitBackgroundClip: "text",
+						WebkitTextFillColor: "transparent",
+						textAlign: "center",
+					}}
+				>
+					{title}
+				</Typography>
+			</Box>
+		);
+	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -71,8 +113,22 @@ const IndexPage: React.FC<PageProps> = () => {
 			
 			<GlassNavbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
-			{/* Main Content */}
-			<HeroSection />
+			{/* Main Content with Full-Page Scroll */}
+			<Box
+				sx={{
+					height: "100vh",
+					overflowY: "scroll",
+					scrollSnapType: "y mandatory",
+					scrollBehavior: "smooth",
+				}}
+			>
+				<Box sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+					<HeroSection />
+				</Box>
+				<ProjectsSection />
+				<Section id="skills" title="Skills" />
+				<Section id="contact" title="Contact" />
+			</Box>
 		</ThemeProvider>
 	);
 };
