@@ -1,16 +1,8 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import {
-	Box,
-	Typography,
-	CssBaseline,
-	alpha,
-} from "@mui/material";
+import { Box, Typography, CssBaseline, alpha } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import {
-	createTheme,
-	ThemeProvider,
-} from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ParticleBackground from "../components/ParticleBackground";
 import PolkadotBackground from "../components/PolkadotBackground";
 import GlassNavbar from "../components/GlassNavbar";
@@ -62,15 +54,18 @@ const IndexPage: React.FC<PageProps> = () => {
 					},
 				},
 			}),
-		[isDarkMode]
+		[isDarkMode],
 	);
 
 	const toggleTheme = () => {
 		setIsDarkMode((prev) => !prev);
 	};
 
-
-	const Section: React.FC<{ id: string; title: string; isLast?: boolean }> = ({ id, title, isLast }) => {
+	const Section: React.FC<{ id: string; title: string; isLast?: boolean }> = ({
+		id,
+		title,
+		isLast,
+	}) => {
 		const sectionTheme = useTheme();
 		return (
 			<Box
@@ -112,7 +107,7 @@ const IndexPage: React.FC<PageProps> = () => {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<PolkadotBackground isDarkMode={isDarkMode} />
-			
+
 			<GlassNavbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
 			{/* Main Content with Full-Page Scroll */}
@@ -124,16 +119,28 @@ const IndexPage: React.FC<PageProps> = () => {
 					scrollBehavior: "smooth",
 				}}
 			>
-				<Box id="home" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+				<Box
+					id="home"
+					sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+				>
 					<HeroSection />
 				</Box>
-				<Box id="projects" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+				<Box
+					id="projects"
+					sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+				>
 					<ProjectsSection />
 				</Box>
-				<Box id="skills" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+				<Box
+					id="skills"
+					sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+				>
 					<SkillsSection />
 				</Box>
-				<Box id="contact" sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+				<Box
+					id="contact"
+					sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+				>
 					<ContactSection />
 				</Box>
 			</Box>
@@ -147,7 +154,14 @@ export const Head: HeadFC = () => (
 	<>
 		<title>{`Rizky Darmawan | Software Engineer`}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossOrigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
 	</>
 );

@@ -57,7 +57,9 @@ const extractRgb = (colorStr: string) => {
 	return { r: 0, g: 0, b: 0 };
 };
 
-const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = true }) => {
+const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
+	isDarkMode = true,
+}) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const dotsRef = useRef<Dot[]>([]);
 	const mouseRef = useRef({ x: -1000, y: -1000 });
@@ -101,9 +103,15 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 		};
 
 		const bgColor = extractRgb(theme.palette.background.default);
-		const dotBaseColor = extractRgb(isDarkMode ? theme.palette.text.primary : theme.palette.text.secondary);
-		const glowColor = extractRgb(isDarkMode ? theme.palette.primary.main : theme.palette.text.primary);
-		const highlightRgb = extractRgb(isDarkMode ? theme.palette.common.white : theme.palette.common.black);
+		const dotBaseColor = extractRgb(
+			isDarkMode ? theme.palette.text.primary : theme.palette.text.secondary,
+		);
+		const glowColor = extractRgb(
+			isDarkMode ? theme.palette.primary.main : theme.palette.text.primary,
+		);
+		const highlightRgb = extractRgb(
+			isDarkMode ? theme.palette.common.white : theme.palette.common.black,
+		);
 		const highlightColorStr = `${highlightRgb.r}, ${highlightRgb.g}, ${highlightRgb.b}`;
 
 		const draw = () => {
@@ -129,8 +137,7 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 				}
 
 				const radius =
-					dot.baseRadius +
-					(DOT_MAX_RADIUS - dot.baseRadius) * glowIntensity;
+					dot.baseRadius + (DOT_MAX_RADIUS - dot.baseRadius) * glowIntensity;
 				const alpha = 0.3 + 0.7 * glowIntensity;
 
 				// Interpolate between dot color and glow color
@@ -165,38 +172,20 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({ isDarkMode = tr
 					gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
 					ctx.beginPath();
-					ctx.arc(
-						dot.x * dpr,
-						dot.y * dpr,
-						glowSize * dpr,
-						0,
-						Math.PI * 2,
-					);
+					ctx.arc(dot.x * dpr, dot.y * dpr, glowSize * dpr, 0, Math.PI * 2);
 					ctx.fillStyle = gradient;
 					ctx.fill();
 				}
 
 				ctx.beginPath();
-				ctx.arc(
-					dot.x * dpr,
-					dot.y * dpr,
-					radius * dpr,
-					0,
-					Math.PI * 2,
-				);
+				ctx.arc(dot.x * dpr, dot.y * dpr, radius * dpr, 0, Math.PI * 2);
 				ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
 				ctx.fill();
 
 				if (glowIntensity > 0.3) {
 					const highlightAlpha = (glowIntensity - 0.3) / 0.7;
 					ctx.beginPath();
-					ctx.arc(
-						dot.x * dpr,
-						dot.y * dpr,
-						radius * dpr * 0.5,
-						0,
-						Math.PI * 2,
-					);
+					ctx.arc(dot.x * dpr, dot.y * dpr, radius * dpr * 0.5, 0, Math.PI * 2);
 					ctx.fillStyle = `rgba(${highlightColorStr}, ${highlightAlpha * 0.6})`;
 					ctx.fill();
 				}

@@ -197,7 +197,8 @@ const ContactSection: React.FC = () => {
 					maxWidth: 500,
 				}}
 			>
-				Have a project in mind? Let&apos;s collaborate and build something amazing together.
+				Have a project in mind? Let&apos;s collaborate and build something
+				amazing together.
 			</Typography>
 
 			<Box

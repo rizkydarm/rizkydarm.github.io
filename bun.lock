@@ -19,6 +19,7 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-glider": "^5.0.0",
+        "react-icons": "^5.6.0",
       },
       "devDependencies": {
         "@biomejs/biome": "2.4.12",
@@ -2710,6 +2711,8 @@
     "react-error-overlay": ["react-error-overlay@6.0.11", "", {}, "sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg=="],
 
     "react-glider": ["react-glider@5.0.0", "", { "dependencies": { "glider-js": "^1.7.7" }, "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" } }, "sha512-G8XuNInBEG7MRr8kjDN+0fyxRkgyrQiEtok1r4ooaQNqXSvhihu14YdUn/AULbIRl3vCxeZsfSAM46wyyEfz3g=="],
+
+    "react-icons": ["react-icons@5.6.0", "", { "peerDependencies": { "react": "*" } }, "sha512-RH93p5ki6LfOiIt0UtDyNg/cee+HLVR6cHHtW3wALfo+eOHTp8RnU2kRkI6E+H19zMIs03DyxUG/GfZMOGvmiA=="],
 
     "react-is": ["react-is@19.2.5", "", {}, "sha512-Dn0t8IQhCmeIT3wu+Apm1/YVsJXsGWi6k4sPdnBIdqMVtHtv0IGi6dcpNpNkNac0zB2uUAqNX3MHzN8c+z2rwQ=="],
 

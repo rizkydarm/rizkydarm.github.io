@@ -62,10 +62,7 @@ const ParticleBackground: React.FC = () => {
 		const drawParticle = (particle: Particle) => {
 			ctx.strokeStyle = `rgba(125, 125, 125, ${particle.alpha})`;
 			ctx.beginPath();
-			ctx.moveTo(
-				particle.x + particle.x / 2,
-				particle.y + particle.y / 2,
-			);
+			ctx.moveTo(particle.x + particle.x / 2, particle.y + particle.y / 2);
 			ctx.lineTo(
 				particle.x + particle.x / 2 + particle.width / 2,
 				particle.y + particle.y / 2 + particle.height,

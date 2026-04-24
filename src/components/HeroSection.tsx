@@ -19,15 +19,18 @@ const HeroSection: React.FC = () => {
 		if (!isReady) return;
 
 		// Continuous floating animation for shapes
-		const floatingAnimation = animate(shapesRef.current.filter(Boolean) as HTMLElement[], {
-			y: () => random(-70, 70),
-			x: () => random(-50, 50),
-			rotate: () => random(0, 360),
-			duration: () => random(5000, 9000),
-			ease: "inOutSine",
-			loop: true,
-			alternate: true,
-		});
+		const floatingAnimation = animate(
+			shapesRef.current.filter(Boolean) as HTMLElement[],
+			{
+				y: () => random(-70, 70),
+				x: () => random(-50, 50),
+				rotate: () => random(0, 360),
+				duration: () => random(5000, 9000),
+				ease: "inOutSine",
+				loop: true,
+				alternate: true,
+			},
+		);
 
 		return () => {
 			floatingAnimation.pause();
@@ -82,7 +85,9 @@ const HeroSection: React.FC = () => {
 			>
 				{/* Circle shape */}
 				<Box
-					ref={(el: HTMLDivElement | null) => { shapesRef.current[0] = el; }}
+					ref={(el: HTMLDivElement | null) => {
+						shapesRef.current[0] = el;
+					}}
 					sx={{
 						position: "absolute",
 						top: "25%",
@@ -97,7 +102,9 @@ const HeroSection: React.FC = () => {
 				/>
 				{/* Square shape */}
 				<Box
-					ref={(el: HTMLDivElement | null) => { shapesRef.current[1] = el; }}
+					ref={(el: HTMLDivElement | null) => {
+						shapesRef.current[1] = el;
+					}}
 					sx={{
 						position: "absolute",
 						top: "20%",
@@ -113,7 +120,9 @@ const HeroSection: React.FC = () => {
 				/>
 				{/* Triangle shape */}
 				<Box
-					ref={(el: HTMLDivElement | null) => { shapesRef.current[2] = el; }}
+					ref={(el: HTMLDivElement | null) => {
+						shapesRef.current[2] = el;
+					}}
 					sx={{
 						position: "absolute",
 						bottom: "20%",
@@ -129,7 +138,9 @@ const HeroSection: React.FC = () => {
 				/>
 				{/* Small circle */}
 				<Box
-					ref={(el: HTMLDivElement | null) => { shapesRef.current[3] = el; }}
+					ref={(el: HTMLDivElement | null) => {
+						shapesRef.current[3] = el;
+					}}
 					sx={{
 						position: "absolute",
 						bottom: "15%",
@@ -144,7 +155,9 @@ const HeroSection: React.FC = () => {
 				/>
 				{/* Accent circle */}
 				<Box
-					ref={(el: HTMLDivElement | null) => { shapesRef.current[4] = el; }}
+					ref={(el: HTMLDivElement | null) => {
+						shapesRef.current[4] = el;
+					}}
 					sx={{
 						position: "absolute",
 						top: "60%",
@@ -198,7 +211,10 @@ const HeroSection: React.FC = () => {
 								sx={{
 									display: "inline-block",
 									color: i === 0 ? "text.primary" : "transparent",
-									backgroundImage: i === 1 ? `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.text.primary})` : "none",
+									backgroundImage:
+										i === 1
+											? `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.text.primary})`
+											: "none",
 									backgroundClip: i === 1 ? "text" : "border-box",
 									WebkitBackgroundClip: i === 1 ? "text" : "border-box",
 									WebkitTextFillColor: i === 1 ? "transparent" : "inherit",
@@ -222,9 +238,10 @@ const HeroSection: React.FC = () => {
 						lineHeight: 1.6,
 					}}
 				>
-					5+ years of experience designing and shipping cross-platform mobile applications.
-					Currently architecting AI-driven automation systems using n8n, FastAPI, and AI agents,
-					with a strong foundation in cloud deployment, CI/CD, and Agile delivery.
+					5+ years of experience designing and shipping cross-platform mobile
+					applications. Currently architecting AI-driven automation systems
+					using n8n, FastAPI, and AI agents, with a strong foundation in cloud
+					deployment, CI/CD, and Agile delivery.
 				</Typography>
 
 				<Button

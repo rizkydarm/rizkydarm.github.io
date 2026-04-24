@@ -11,7 +11,10 @@ interface GlassNavbarProps {
 const FAVICON_URL = "/favicon.png";
 const AVATAR_URL = "/avatar.jpg";
 
-const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) => {
+const GlassNavbar: React.FC<GlassNavbarProps> = ({
+	isDarkMode,
+	toggleTheme,
+}) => {
 	const [scrolled, setScrolled] = useState(false);
 	const theme = useTheme();
 
@@ -112,7 +115,9 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 								fontWeight: 600,
 								fontSize: "1rem",
 								letterSpacing: "-0.01em",
-								textShadow: isDarkMode ? `0 0 20px ${alpha(theme.palette.text.primary, 0.1)}` : "none",
+								textShadow: isDarkMode
+									? `0 0 20px ${alpha(theme.palette.text.primary, 0.1)}`
+									: "none",
 								display: { xs: "none", sm: "block" },
 							}}
 						>
@@ -176,7 +181,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({ isDarkMode, toggleTheme }) =>
 							height: 36,
 							borderRadius: "50%",
 							objectFit: "cover",
-							position: "relative", 
+							position: "relative",
 							cursor: "pointer",
 							border: `2px solid ${avatarBorder}`,
 							boxShadow: `0 0 12px ${alpha(theme.palette.text.primary, 0.05)}`,
