@@ -60,48 +60,6 @@ const IndexPage: React.FC<PageProps> = () => {
 		setIsDarkMode((prev) => !prev);
 	};
 
-	const Section: React.FC<{ id: string; title: string; isLast?: boolean }> = ({
-		id,
-		title,
-		isLast,
-	}) => {
-		const sectionTheme = useTheme();
-		return (
-			<Box
-				id={id}
-				sx={{
-					position: "relative",
-					zIndex: 10,
-					minHeight: "100vh",
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					px: 3,
-					scrollSnapAlign: "start",
-					scrollSnapStop: "always",
-				}}
-			>
-				<Typography
-					variant="h1"
-					sx={{
-						fontFamily: '"Roboto Mono", monospace',
-						fontSize: { xs: "2.5rem", md: "4rem", lg: "5rem" },
-						fontWeight: 700,
-						letterSpacing: "-0.02em",
-						color: "transparent",
-						backgroundImage: `linear-gradient(135deg, ${sectionTheme.palette.primary.main}, ${sectionTheme.palette.text.primary})`,
-						backgroundClip: "text",
-						WebkitBackgroundClip: "text",
-						WebkitTextFillColor: "transparent",
-						textAlign: "center",
-					}}
-				>
-					{title}
-				</Typography>
-			</Box>
-		);
-	};
-
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
