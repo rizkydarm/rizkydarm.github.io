@@ -1,15 +1,14 @@
-import * as React from "react";
+import { alpha, Box, CssBaseline, Typography } from "@mui/material";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import type { HeadFC, PageProps } from "gatsby";
-import { Box, Typography, CssBaseline, alpha } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ParticleBackground from "../components/ParticleBackground";
-import PolkadotBackground from "../components/PolkadotBackground";
+import * as React from "react";
+import ContactSection from "../components/ContactSection";
 import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
+import ParticleBackground from "../components/ParticleBackground";
+import PolkadotBackground from "../components/PolkadotBackground";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
-import ContactSection from "../components/ContactSection";
 
 const IndexPage: React.FC<PageProps> = () => {
 	const [isDarkMode, setIsDarkMode] = React.useState(true);

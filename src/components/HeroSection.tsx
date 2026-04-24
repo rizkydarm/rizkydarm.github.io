@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { animate, random } from "animejs";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HeroSection: React.FC = () => {
 	const theme = useTheme();

@@ -1,45 +1,46 @@
-import React, { useRef, useState, useEffect } from "react";
 import {
-	Box,
-	Typography,
-	Chip,
-	IconButton,
-	CircularProgress,
-} from "@mui/material";
-import { alpha, useTheme } from "@mui/material/styles";
-import {
-	Code,
-	Smartphone,
-	Cloud,
-	Psychology,
-	Storage,
-	IntegrationInstructions,
-	Chat,
-	Security,
 	Analytics,
-	Payments,
-	Language,
-	Router,
+	Chat,
 	ChevronLeft,
 	ChevronRight,
+	Cloud,
+	Code,
 	GitHub,
+	IntegrationInstructions,
+	Language,
+	Payments,
+	Psychology,
+	Router,
+	Security,
+	Smartphone,
+	Storage,
 } from "@mui/icons-material";
+import {
+	Box,
+	Chip,
+	CircularProgress,
+	IconButton,
+	Typography,
+} from "@mui/material";
+import { alpha, useTheme } from "@mui/material/styles";
+import React, { useEffect, useRef, useState } from "react";
 import Glider from "react-glider";
 import type { GliderMethods } from "react-glider/dist/types";
 import "glider-js/glider.min.css";
 import {
-	SiN8N,
-	SiFlutter,
-	SiTypescript,
-	SiJavascript,
 	SiAndroid,
+	SiDocker,
+	SiFirebase,
+	SiFlutter,
+	SiGatsby,
+	SiJavascript,
+	SiMaterialdesign,
+	SiN8N,
+	SiPostgresql,
 	SiPython,
 	SiReact,
-	SiFirebase,
-	SiPostgresql,
 	SiSupabase,
-	SiDocker,
-	SiGatsby,
+	SiTypescript,
 } from "react-icons/si";
 
 interface ProjectData {
@@ -86,6 +87,7 @@ const iconMap: Record<string, React.ReactNode> = {
 	gatsby: <SiGatsby size={40} />,
 	postgres: <SiPostgresql size={40} />,
 	supabase: <SiSupabase size={40} />,
+	material: <SiMaterialdesign size={40} />,
 };
 
 const convertProjectData = (data: ProjectData): Project => ({

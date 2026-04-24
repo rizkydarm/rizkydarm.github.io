@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
 import { useTheme } from "@mui/material/styles";
+import type React from "react";
+import { useEffect, useRef } from "react";
 
 interface Dot {
 	x: number;

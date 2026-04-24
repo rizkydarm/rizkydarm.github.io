@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { Brightness4, Brightness7 } from "@mui/icons-material";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 interface GlassNavbarProps {
 	isDarkMode: boolean;

@@ -1,18 +1,18 @@
-import React from "react";
-import { Box, Typography, Chip } from "@mui/material";
-import { alpha, useTheme } from "@mui/material/styles";
 import {
-	Code,
-	Storage,
-	Terminal,
 	AccountTree,
+	BugReport,
+	Code,
+	Construction,
+	DesignServices,
+	Groups,
 	Psychology,
 	SmartToy,
-	Groups,
-	Construction,
-	BugReport,
-	DesignServices,
+	Storage,
+	Terminal,
 } from "@mui/icons-material";
+import { Box, Chip, Typography } from "@mui/material";
+import { alpha, useTheme } from "@mui/material/styles";
+import type React from "react";
 
 interface SkillCategory {
 	icon: React.ReactNode;

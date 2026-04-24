@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
+import { type HeadFC, Link, type PageProps } from "gatsby";
+import type * as React from "react";
 
 const pageStyles = {
 	color: "#232129",
