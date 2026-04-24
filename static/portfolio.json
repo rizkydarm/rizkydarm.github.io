@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "icon": "smartphone",
+      "title": "Mobile Banking App",
+      "description": "A secure and intuitive mobile banking application built with Flutter. Features include biometric authentication, real-time transaction tracking, QR code payments, and AI-powered financial insights.",
+      "githubUrl": "\"https://github.com/rizkydarm/mobile-banking\"",
+      "tags": [
+        "Flutter",
+        "Dart",
+        "Firebase"
+      ],
+      "date": "April 2026"
+    }
+  ]
+}
