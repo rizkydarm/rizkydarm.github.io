@@ -1,6 +1,6 @@
 {
-  "projects": [
-    {
+	"projects": [
+		{
 			"icon": "smartphone",
 			"title": "Mobile Banking App",
 			"description": "A secure and intuitive mobile banking application built with Flutter. Features include biometric authentication, real-time transaction tracking, QR code payments, and AI-powered financial insights.",
@@ -96,5 +96,5 @@
 			"tags": ["MQTT", "Raspberry Pi", "Python"],
 			"date": "March 2025"
 		}
-  ]
+	]
 }

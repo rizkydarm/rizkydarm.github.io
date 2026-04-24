@@ -28,6 +28,7 @@ interface Project {
 	description: string;
 	githubUrl: string;
 	tags: string[];
+	date: string;
 }
 
 const projects: Project[] = [
@@ -37,6 +38,7 @@ const projects: Project[] = [
 		description: "A secure and intuitive mobile banking application built with Flutter. Features include biometric authentication, real-time transaction tracking, QR code payments, and AI-powered financial insights.",
 		githubUrl: "https://github.com/rizkydarm/mobile-banking",
 		tags: ["Flutter", "Dart", "Firebase"],
+		date: "April 2026"
 	},
 	{
 		icon: <Cloud sx={{ fontSize: 40 }} />,
@@ -44,6 +46,7 @@ const projects: Project[] = [
 		description: "Comprehensive cloud infrastructure monitoring dashboard built with React and TypeScript. Visualizes AWS resource usage, cost analytics, and real-time alerts with interactive charts.",
 		githubUrl: "https://github.com/rizkydarm/cloud-dashboard",
 		tags: ["React", "TypeScript", "AWS"],
+		date: "January 2026"
 	},
 	{
 		icon: <Psychology sx={{ fontSize: 40 }} />,
@@ -51,6 +54,7 @@ const projects: Project[] = [
 		description: "Intelligent workflow automation platform leveraging n8n and custom FastAPI endpoints. Automates repetitive tasks, data extraction, and integrates with multiple third-party services.",
 		githubUrl: "https://github.com/rizkydarm/ai-automation",
 		tags: ["Python", "FastAPI", "n8n"],
+		date: "December 2025"
 	},
 	{
 		icon: <Storage sx={{ fontSize: 40 }} />,
@@ -58,6 +62,7 @@ const projects: Project[] = [
 		description: "Scalable ETL pipeline for processing millions of records daily. Orchestrates data flow from multiple sources to PostgreSQL warehouse with Docker containerization.",
 		githubUrl: "https://github.com/rizkydarm/data-pipeline",
 		tags: ["Node.js", "PostgreSQL", "Docker"],
+		date: "November 2025"
 	},
 	{
 		icon: <IntegrationInstructions sx={{ fontSize: 40 }} />,
@@ -65,6 +70,7 @@ const projects: Project[] = [
 		description: "End-to-end DevOps automation platform with GitHub Actions workflows, Terraform infrastructure provisioning, and Kubernetes deployment orchestration for microservices.",
 		githubUrl: "https://github.com/rizkydarm/cicd-platform",
 		tags: ["GitHub Actions", "Terraform", "K8s"],
+		date: "October 2025"
 	},
 	{
 		icon: <Code sx={{ fontSize: 40 }} />,
@@ -72,6 +78,7 @@ const projects: Project[] = [
 		description: "Personal portfolio built with Gatsby and Material UI featuring glassmorphism design, smooth scroll animations, and responsive layout optimized for all devices.",
 		githubUrl: "https://github.com/rizkydarm/portfolio",
 		tags: ["Gatsby", "React", "MUI"],
+		date: "September 2025"
 	},
 	{
 		icon: <Chat sx={{ fontSize: 40 }} />,
@@ -79,6 +86,7 @@ const projects: Project[] = [
 		description: "Full-stack messaging application with Socket.io for real-time communication. Features include group chats, message persistence with Redis, and typing indicators.",
 		githubUrl: "https://github.com/rizkydarm/chat-app",
 		tags: ["Socket.io", "Express", "Redis"],
+		date: "August 2025"
 	},
 	{
 		icon: <Security sx={{ fontSize: 40 }} />,
@@ -86,6 +94,7 @@ const projects: Project[] = [
 		description: "Microservice handling authentication and authorization with OAuth2 and JWT. Provides secure token management, session handling, and multi-provider login support.",
 		githubUrl: "https://github.com/rizkydarm/auth-service",
 		tags: ["OAuth2", "JWT", "Go"],
+		date: "July 2025"
 	},
 	{
 		icon: <Analytics sx={{ fontSize: 40 }} />,
@@ -93,6 +102,7 @@ const projects: Project[] = [
 		description: "High-performance analytics dashboard powered by ClickHouse for OLAP queries. Real-time data visualization with Grafana and event streaming via Apache Kafka.",
 		githubUrl: "https://github.com/rizkydarm/analytics",
 		tags: ["ClickHouse", "Grafana", "Kafka"],
+		date: "June 2025"
 	},
 	{
 		icon: <Payments sx={{ fontSize: 40 }} />,
@@ -100,6 +110,7 @@ const projects: Project[] = [
 		description: "Payment processing service integrating Stripe API with custom webhook handling. Supports multiple currencies, subscription billing, and automated invoicing.",
 		githubUrl: "https://github.com/rizkydarm/payment-gateway",
 		tags: ["Stripe", "Node.js", "MongoDB"],
+		date: "May 2025"
 	},
 	{
 		icon: <Language sx={{ fontSize: 40 }} />,
@@ -107,6 +118,7 @@ const projects: Project[] = [
 		description: "Headless content management system built with Next.js and Prisma. Features rich text editing, media management, role-based access, and GraphQL API for content delivery.",
 		githubUrl: "https://github.com/rizkydarm/cms-platform",
 		tags: ["Next.js", "Prisma", "PostgreSQL"],
+		date: "April 2025"
 	},
 	{
 		icon: <Router sx={{ fontSize: 40 }} />,
@@ -114,6 +126,7 @@ const projects: Project[] = [
 		description: "IoT fleet management platform for monitoring and controlling Raspberry Pi devices. Uses MQTT for lightweight messaging and provides real-time device telemetry.",
 		githubUrl: "https://github.com/rizkydarm/iot-manager",
 		tags: ["MQTT", "Raspberry Pi", "Python"],
+		date: "March 2025"
 	},
 ];
 
