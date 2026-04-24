@@ -1,0 +1,100 @@
+{
+  "projects": [
+    	{
+			"icon": "smartphone",
+			"title": "This Protfolio Web",
+			"description": "My personal portfolio website built with Gatsby and React. Features a modern design with glassmorphism effects, smooth animations, and responsive layout.",
+			"githubUrl": "https://github.com/rizkydarm/rizkydarm.github.io",
+			"tags": ["Gatsby", "React", "Material UI"],
+			"date": "April 2026"
+		},
+		{
+			"icon": "cloud",
+			"title": "Cloud Dashboard",
+			"description": "Comprehensive cloud infrastructure monitoring dashboard built with React and TypeScript. Visualizes AWS resource usage, cost analytics, and real-time alerts with interactive charts.",
+			"githubUrl": "https://github.com/rizkydarm/cloud-dashboard",
+			"tags": ["React", "TypeScript", "AWS"],
+			"date": "January 2026"
+		},
+		{
+			"icon": "psychology",
+			"title": "AI Automation System",
+			"description": "Intelligent workflow automation platform leveraging n8n and custom FastAPI endpoints. Automates repetitive tasks, data extraction, and integrates with multiple third-party services.",
+			"githubUrl": "https://github.com/rizkydarm/ai-automation",
+			"tags": ["Python", "FastAPI", "n8n"],
+			"date": "December 2025"
+		},
+		{
+			"icon": "storage",
+			"title": "Data Pipeline",
+			"description": "Scalable ETL pipeline for processing millions of records daily. Orchestrates data flow from multiple sources to PostgreSQL warehouse with Docker containerization.",
+			"githubUrl": "https://github.com/rizkydarm/data-pipeline",
+			"tags": ["Node.js", "PostgreSQL", "Docker"],
+			"date": "November 2025"
+		},
+		{
+			"icon": "integration_instructions",
+			"title": "CI/CD Platform",
+			"description": "End-to-end DevOps automation platform with GitHub Actions workflows, Terraform infrastructure provisioning, and Kubernetes deployment orchestration for microservices.",
+			"githubUrl": "https://github.com/rizkydarm/cicd-platform",
+			"tags": ["GitHub Actions", "Terraform", "K8s"],
+			"date": "October 2025"
+		},
+		{
+			"icon": "code",
+			"title": "Portfolio Website",
+			"description": "Personal portfolio built with Gatsby and Material UI featuring glassmorphism design, smooth scroll animations, and responsive layout optimized for all devices.",
+			"githubUrl": "https://github.com/rizkydarm/portfolio",
+			"tags": ["Gatsby", "React", "MUI"],
+			"date": "September 2025"
+		},
+		{
+			"icon": "chat",
+			"title": "Real-time Chat App",
+			"description": "Full-stack messaging application with Socket.io for real-time communication. Features include group chats, message persistence with Redis, and typing indicators.",
+			"githubUrl": "https://github.com/rizkydarm/chat-app",
+			"tags": ["Socket.io", "Express", "Redis"],
+			"date": "August 2025"
+		},
+		{
+			"icon": "security",
+			"title": "Auth Service",
+			"description": "Microservice handling authentication and authorization with OAuth2 and JWT. Provides secure token management, session handling, and multi-provider login support.",
+			"githubUrl": "https://github.com/rizkydarm/auth-service",
+			"tags": ["OAuth2", "JWT", "Go"],
+			"date": "July 2025"
+		},
+		{
+			"icon": "analytics",
+			"title": "Analytics Platform",
+			"description": "High-performance analytics dashboard powered by ClickHouse for OLAP queries. Real-time data visualization with Grafana and event streaming via Apache Kafka.",
+			"githubUrl": "https://github.com/rizkydarm/analytics",
+			"tags": ["ClickHouse", "Grafana", "Kafka"],
+			"date": "June 2025"
+		},
+		{
+			"icon": "payments",
+			"title": "Payment Gateway",
+			"description": "Payment processing service integrating Stripe API with custom webhook handling. Supports multiple currencies, subscription billing, and automated invoicing.",
+			"githubUrl": "https://github.com/rizkydarm/payment-gateway",
+			"tags": ["Stripe", "Node.js", "MongoDB"],
+			"date": "May 2025"
+		},
+		{
+			"icon": "language",
+			"title": "CMS Platform",
+			"description": "Headless content management system built with Next.js and Prisma. Features rich text editing, media management, role-based access, and GraphQL API for content delivery.",
+			"githubUrl": "https://github.com/rizkydarm/cms-platform",
+			"tags": ["Next.js", "Prisma", "PostgreSQL"],
+			"date": "April 2025"
+		},
+		{
+			"icon": "router",
+			"title": "IoT Device Manager",
+			"description": "IoT fleet management platform for monitoring and controlling Raspberry Pi devices. Uses MQTT for lightweight messaging and provides real-time device telemetry.",
+			"githubUrl": "https://github.com/rizkydarm/iot-manager",
+			"tags": ["MQTT", "Raspberry Pi", "Python"],
+			"date": "March 2025"
+		}
+  	]
+}
