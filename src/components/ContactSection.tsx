@@ -1,7 +1,7 @@
 import { ArrowOutward, Email, GitHub, LinkedIn } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
-import type React from "react";
+import React from "react";
 
 interface ContactItem {
 	icon: React.ReactNode;

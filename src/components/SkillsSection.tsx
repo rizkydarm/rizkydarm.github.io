@@ -12,7 +12,7 @@ import {
 } from "@mui/icons-material";
 import { Box, Chip, Typography } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
-import type React from "react";
+import React from "react";
 
 interface SkillCategory {
 	icon: React.ReactNode;

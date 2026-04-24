@@ -14,6 +14,7 @@ import {
 	Security,
 	Smartphone,
 	Storage,
+	SmartToy,
 } from "@mui/icons-material";
 import {
 	Box,
@@ -74,6 +75,7 @@ const iconMap: Record<string, React.ReactNode> = {
 	payments: <Payments sx={{ fontSize: 40 }} />,
 	language: <Language sx={{ fontSize: 40 }} />,
 	router: <Router sx={{ fontSize: 40 }} />,
+	robot: <SmartToy sx={{ fontSize: 40 }} />,
 	github: <GitHub sx={{ fontSize: 40 }} />,
 	n8n: <SiN8N size={40} />,
 	flutter: <SiFlutter size={40} />,
