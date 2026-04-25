@@ -1,0 +1,149 @@
+{
+  "projects": [
+    {
+      "icon": "smartphone",
+      "title": "This Portfolio Web",
+      "description": "My personal portfolio website built with Gatsby and React. Features a modern design with glassmorphism effects, smooth animations, and responsive layout.",
+      "githubUrl": "https://github.com/rizkydarm/rizkydarm.github.io",
+      "tags": [
+        "React",
+        "Gatsby",
+        "Material UI"
+      ],
+      "date": "April 2026"
+    },
+    {
+      "icon": "integration_instructions",
+      "title": "Eky Chat AI ",
+      "description": "Cross-platform AI Chat built with Tauri for Desktop and Mobile, React for Web",
+      "githubUrl": "https://github.com/rizkydarm/Eky-Chat-AI-TauriNextTS",
+      "tags": [
+        "Tauri",
+        "Typescript",
+        "Next"
+      ],
+      "date": "October 2025"
+    },
+    {
+      "icon": "code",
+      "title": "Clustering AI Agents Skills",
+      "description": "Python Program for clustering AI agent skills with ML Scikit-learn",
+      "githubUrl": "https://github.com/rizkydarm/ClusteringAIAgentsSkills-Python",
+      "tags": [
+        "Python",
+        "Machine Learning",
+        "AI Agent"
+      ],
+      "date": "September 2025"
+    },
+    {
+      "icon": "robot",
+      "title": "AI Automation System and Backend App for Micro Business",
+      "description": "Intelligent workflow automation built with n8n and FastAPI Python for Backend App. Features with Ollama Cloud for OCR read image and OpenAI as AI Agent",
+      "githubUrl": "https://github.com/rizkydarm/AI-OCR-ReadImage-PythonDocker",
+      "tags": [
+        "n8n",
+        "OpenAI",
+        "Python",
+        "Ollama"
+      ],
+      "date": "January 2026"
+    },
+    {
+      "icon": "smartphone",
+      "title": "Eky Resto Cashier Mobile App",
+      "description": "Intelligent workflow automation platform leveraging n8n and custom FastAPI endpoints. Automates repetitive tasks, data extraction, and integrates with multiple third-party services.",
+      "githubUrl": "https://github.com/rizkydarm/EkyRestoCashier-Flutter",
+      "tags": [
+        "Flutter",
+        "Android",
+        "IOS"
+      ],
+      "date": "December 2025"
+    },
+    {
+      "icon": "smartphone",
+      "title": "Eky CinemaTix",
+      "description": "Scalable ETL pipeline for processing millions of records daily. Orchestrates data flow from multiple sources to PostgreSQL warehouse with Docker containerization.",
+      "githubUrl": "https://github.com/rizkydarm/EkyCinemaTix-UIKitSwift",
+      "tags": [
+        "Swift",
+        "UIKit",
+        "IOS"
+      ],
+      "date": "November 2025"
+    },
+    {
+      "icon": "chat",
+      "title": "Real-time Chat App",
+      "description": "Full-stack messaging application with Socket.io for real-time communication. Features include group chats, message persistence with Redis, and typing indicators.",
+      "githubUrl": "https://github.com/rizkydarm/chat-app",
+      "tags": [
+        "Socket.io",
+        "Express",
+        "Redis"
+      ],
+      "date": "August 2025"
+    },
+    {
+      "icon": "security",
+      "title": "Auth Service",
+      "description": "Microservice handling authentication and authorization with OAuth2 and JWT. Provides secure token management, session handling, and multi-provider login support.",
+      "githubUrl": "https://github.com/rizkydarm/auth-service",
+      "tags": [
+        "OAuth2",
+        "JWT",
+        "Go"
+      ],
+      "date": "July 2025"
+    },
+    {
+      "icon": "analytics",
+      "title": "Analytics Platform",
+      "description": "High-performance analytics dashboard powered by ClickHouse for OLAP queries. Real-time data visualization with Grafana and event streaming via Apache Kafka.",
+      "githubUrl": "https://github.com/rizkydarm/analytics",
+      "tags": [
+        "ClickHouse",
+        "Grafana",
+        "Kafka"
+      ],
+      "date": "June 2025"
+    },
+    {
+      "icon": "payments",
+      "title": "Payment Gateway",
+      "description": "Payment processing service integrating Stripe API with custom webhook handling. Supports multiple currencies, subscription billing, and automated invoicing.",
+      "githubUrl": "https://github.com/rizkydarm/payment-gateway",
+      "tags": [
+        "Stripe",
+        "Node.js",
+        "MongoDB"
+      ],
+      "date": "May 2025"
+    },
+    {
+      "icon": "language",
+      "title": "CMS Platform",
+      "description": "Headless content management system built with Next.js and Prisma. Features rich text editing, media management, role-based access, and GraphQL API for content delivery.",
+      "githubUrl": "https://github.com/rizkydarm/cms-platform",
+      "tags": [
+        "Next.js",
+        "Prisma",
+        "PostgreSQL"
+      ],
+      "date": "April 2025"
+    },
+    {
+      "icon": "router",
+      "title": "IoT Device Manager",
+      "description": "IoT fleet management platform for monitoring and controlling Raspberry Pi devices. Uses MQTT for lightweight messaging and provides real-time device telemetry.",
+      "githubUrl": "https://github.com/rizkydarm/iot-manager",
+      "tags": [
+        "MQTT",
+        "Raspberry Pi",
+        "Python"
+      ],
+      "date": "March 2025"
+    }
+  ]
+}
