@@ -5,10 +5,12 @@ import {
 	ChevronRight,
 	Cloud,
 	Code,
+	Close,
 	GitHub,
 	IntegrationInstructions,
 	Language,
 	Payments,
+	PhotoLibrary,
 	Psychology,
 	Router,
 	Security,
@@ -20,7 +22,10 @@ import {
 	Box,
 	Chip,
 	CircularProgress,
+	Dialog,
 	IconButton,
+	ImageList,
+	ImageListItem,
 	Typography,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
@@ -51,6 +56,7 @@ interface ProjectData {
 	githubUrl: string;
 	tags: string[];
 	date: string;
+	images?: string[];
 }
 
 interface Project {
@@ -60,6 +66,7 @@ interface Project {
 	githubUrl: string;
 	tags: string[];
 	date: string;
+	images?: string[];
 }
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -102,14 +109,20 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 	const cardBg = alpha(theme.palette.background.paper, 0.35);
 	const cardBorder = alpha(theme.palette.primary.main, 0.2);
 	const cardHoverBg = alpha(theme.palette.primary.main, 0.08);
+	const [imagesOpen, setImagesOpen] = useState(false);
+
+	const handleOpenImages = () => setImagesOpen(true);
+	const handleCloseImages = () => setImagesOpen(false);
 
 	return (
 		<Box
 			sx={{
 				position: "relative",
-				p: 3,
+				p: 2,
+				mx: 1,
+				mb: 1,
 				borderRadius: "1rem",
-				border: `1px solid ${cardBorder}`,
+				// border: `1px solid ${cardBorder}`,
 				backdropFilter: "blur(20px) saturate(200%)",
 				WebkitBackdropFilter: "blur(20px) saturate(200%)",
 				backgroundColor: cardBg,
@@ -124,17 +137,14 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 				display: "flex",
 				flexDirection: "column",
 				gap: 2,
-				height: "100%",
+				minHeight: 240,
+				minWidth: 300,
+				maxHeight: 280,
+				maxWidth: 400,
 			}}
 		>
-			{/* Top row: Title (left) + Icon (right) */}
-			<Box
-				sx={{
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "flex-start",
-				}}
-			>
+			{/* Title row with icon */}
+			<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 1 }}>
 				<Typography
 					variant="h6"
 					sx={{
@@ -142,8 +152,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 						fontWeight: 600,
 						color: "text.primary",
 						fontSize: "1.25rem",
+						display: "-webkit-box",
+						WebkitLineClamp: 2,
+						WebkitBoxOrient: "vertical",
+						overflow: "hidden",
+						textOverflow: "ellipsis",
 						flex: 1,
-						pr: 2,
 					}}
 				>
 					{project.title}
@@ -154,8 +168,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "center",
-						width: 48,
-						height: 48,
+						width: 50,
+						height: 50,
 						borderRadius: "0.75rem",
 						backgroundColor: alpha(theme.palette.primary.main, 0.1),
 						border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
@@ -174,78 +188,154 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					fontSize: "0.875rem",
 					color: "text.secondary",
 					lineHeight: 1.6,
-					display: "-webkit-box",
-					WebkitLineClamp: 3,
-					WebkitBoxOrient: "vertical",
-					overflow: "hidden",
-					textOverflow: "ellipsis",
+					// display: "-webkit-box",
+					// WebkitLineClamp: 3,
+					// WebkitBoxOrient: "vertical",
+					// overflow: "hidden",
+					// textOverflow: "ellipsis",
+					maxHeight: 300,
 					flex: 1,
 				}}
 			>
 				{project.description}
 			</Typography>
 
-			{/* Bottom row: Tags (left) + GitHub button (right) */}
-			<Box
-				sx={{
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "center",
-					mt: "auto",
-				}}
-			>
-				<Box
-					sx={{
-						display: "flex",
-						flexWrap: "wrap",
-						gap: 1,
-						flex: 1,
-					}}
-				>
-					{project.tags.map((tag) => (
-						<Chip
-							key={tag}
-							label={tag}
-							size="small"
-							sx={{
-								fontFamily: '"Fira Code", monospace',
-								fontSize: "0.75rem",
-								fontWeight: 500,
-								backgroundColor: alpha(theme.palette.primary.main, 0.1),
-								color: "primary.main",
-								border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
-								borderRadius: "0.5rem",
-								"& .MuiChip-label": {
-									px: 1.5,
-								},
-							}}
-						/>
-					))}
+			{/* Bottom row: Tags + Date (left) and GitHub button (right) */}
+			<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", mt: "auto", gap: 1 }}>
+				<Box sx={{ display: "flex", flexDirection: "column", gap: 1, justifyContent: "space-between" }}>
+					<Box
+						sx={{
+							display: "flex",
+							flexWrap: "wrap",
+							gap: 1,
+						}}
+					>
+						{project.tags.map((tag) => (
+							<Chip
+								key={tag}
+								label={tag}
+								size="small"
+								sx={{
+									fontFamily: '"Fira Code", monospace',
+									fontSize: "0.75rem",
+									fontWeight: 500,
+									backgroundColor: alpha(theme.palette.primary.main, 0.1),
+									color: "primary.main",
+									border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+									borderRadius: "0.5rem",
+									"& .MuiChip-label": {
+										px: 1.5,
+									},
+								}}
+							/>
+						))}
+					</Box>
+
+					{/* Date below tags */}
+					<Typography
+						variant="caption"
+						sx={{
+							fontFamily: '"Fira Code", monospace',
+							fontSize: "0.75rem",
+							color: "text.secondary",
+							opacity: 0.7,
+						}}
+					>
+						{project.date}
+					</Typography>
 				</Box>
 
-				<IconButton
-					href={project.githubUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					sx={{
-						width: 36,
-						height: 36,
-						borderRadius: "0.5rem",
-						border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
-						backgroundColor: alpha(theme.palette.background.paper, 0.5),
-						color: "primary.main",
-						transition: "all 0.2s ease",
-						flexShrink: 0,
-						"&:hover": {
-							backgroundColor: alpha(theme.palette.primary.main, 0.15),
-							borderColor: alpha(theme.palette.primary.main, 0.5),
-							transform: "scale(1.05)",
-						},
-					}}
-				>
-					<GitHub sx={{ fontSize: 20 }} />
-				</IconButton>
+				<Box sx={{ display: "flex", gap: 1 }}>
+					{project.images && project.images.length > 0 && (
+						<IconButton
+							onClick={handleOpenImages}
+							sx={{
+								width: 36,
+								height: 36,
+								borderRadius: "0.5rem",
+								border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+								backgroundColor: alpha(theme.palette.background.paper, 0.5),
+								color: "primary.main",
+								transition: "all 0.2s ease",
+								flexShrink: 0,
+								"&:hover": {
+									backgroundColor: alpha(theme.palette.primary.main, 0.15),
+									borderColor: alpha(theme.palette.primary.main, 0.5),
+									transform: "scale(1.05)",
+								},
+							}}
+						>
+							<PhotoLibrary sx={{ fontSize: 20 }} />
+						</IconButton>
+					)}
+					<IconButton
+						href={project.githubUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						sx={{
+							width: 36,
+							height: 36,
+							borderRadius: "0.5rem",
+							border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+							backgroundColor: alpha(theme.palette.background.paper, 0.5),
+							color: "primary.main",
+							transition: "all 0.2s ease",
+							flexShrink: 0,
+							"&:hover": {
+								backgroundColor: alpha(theme.palette.primary.main, 0.15),
+								borderColor: alpha(theme.palette.primary.main, 0.5),
+								transform: "scale(1.05)",
+							},
+						}}
+					>
+						<GitHub sx={{ fontSize: 20 }} />
+					</IconButton>
+				</Box>
 			</Box>
+
+			{/* Images Dialog */}
+			<Dialog
+				open={imagesOpen}
+				onClose={handleCloseImages}
+				fullWidth
+				maxWidth="lg"
+				sx={{
+					"& .MuiDialog-paper": {
+						width: "80%",
+						height: "80%",
+						maxWidth: "80%",
+						maxHeight: "80%",
+						m: 0,
+						backgroundColor: alpha(theme.palette.background.paper, 0.95),
+						backdropFilter: "blur(20px)",
+					},
+				}}
+			>
+				<Box sx={{ p: 2, height: "100%", display: "flex", flexDirection: "column" }}>
+					<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+						<Typography variant="h6" sx={{ fontFamily: '"Roboto Mono", monospace' }}>
+							{project.title} - Images
+						</Typography>
+						<IconButton onClick={handleCloseImages} sx={{ color: "text.primary" }}>
+							<Close />
+						</IconButton>
+					</Box>
+					<Box sx={{ flex: 1, overflow: "auto" }}>
+						<ImageList variant="masonry" cols={2} gap={16}>
+							{project.images?.map((img, idx) => (
+								<ImageListItem key={idx}>
+									<img
+										src={img}
+										alt={`${project.title} screenshot ${idx + 1}`}
+										loading="lazy"
+										style={{ borderRadius: "8px", width: "100%", height: "auto" }}
+									/>
+								</ImageListItem>
+							))}
+						</ImageList>
+					</Box>
+				</Box>
+			</Dialog>
 		</Box>
 	);
 };
@@ -323,8 +413,8 @@ const ProjectsSection: React.FC = () => {
 				alignItems: "center",
 				justifyContent: "flex-start",
 				px: { xs: 2, sm: 3, md: 6 },
-				py: 3,
-				pt: { xs: 10, md: 12 },
+				py: 0,
+				pt: { xs: 8, md: 10 },
 				scrollSnapAlign: "start",
 				scrollSnapStop: "always",
 				boxSizing: "border-box",
@@ -344,8 +434,7 @@ const ProjectsSection: React.FC = () => {
 					WebkitBackgroundClip: "text",
 					WebkitTextFillColor: "transparent",
 					textAlign: "center",
-					mb: 2,
-					mt: 2,
+					mb: 1,
 				}}
 			>
 				Projects
@@ -379,11 +468,17 @@ const ProjectsSection: React.FC = () => {
 						sx={{
 							position: "relative",
 							width: "100%",
-							maxWidth: 2000,
+							height: "100%",
+							maxWidth: "1350px",
 							mx: "auto",
 							display: "flex",
 							alignItems: "center",
 							gap: 0,
+							border: `1px solid red`,
+							// mb: 2,
+							
+							px: 0,
+							py: 0,
 						}}
 					>
 						<IconButton
@@ -394,37 +489,39 @@ const ProjectsSection: React.FC = () => {
 							<ChevronLeft />
 						</IconButton>
 
-						<Box sx={{ flex: 1, overflow: "hidden" }}>
-							<Glider
-								ref={gliderRef}
-								draggable={false}
-								scrollLock
-								slidesToShow={1}
-								slidesToScroll={1}
-								onSlideVisible={(e) => {
-									setCurrentSlide(e.detail.slide);
-								}}
-								className="glider-projects"
-							>
-								{projectPages.map((page, idx) => (
-									<Box
-										key={idx}
-										sx={{
-											display: "grid",
-											gridTemplateColumns: "repeat(3, 1fr)",
-											gridTemplateRows: "repeat(2, 1fr)",
-											gap: 1.5,
-											p: 2,
-											height: "calc(100vh - 280px)",
-											maxHeight: 520,
-										}}
-									>
-										{page.map((project) => (
-											<ProjectCard key={project.title} project={project} />
-										))}
-									</Box>
-								))}
-							</Glider>
+						<Box sx={{ flex: 1, overflow: "hidden", height: "100%" }}>
+							<Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+								<Glider
+									ref={gliderRef}
+									draggable={false}
+									scrollLock
+									slidesToShow={1}
+									slidesToScroll={1}
+									onSlideVisible={(e) => {
+										setCurrentSlide(e.detail.slide);
+									}}
+									className="glider-projects"
+									style={{ height: "100%" }}
+								>
+									{projectPages.map((page, idx) => (
+										<Box
+											key={idx}
+											sx={{
+												display: "grid",
+												gridTemplateColumns: "repeat(3, 1fr)",
+												gridTemplateRows: "repeat(2, 1fr)",
+												height: "100%",
+												border: `1px solid blue`,
+												minHeight: 0,
+											}}
+										>
+											{page.map((project) => (
+												<ProjectCard key={project.title} project={project} />
+											))}
+										</Box>
+									))}
+								</Glider>
+							</Box>
 						</Box>
 
 						<IconButton
@@ -434,41 +531,6 @@ const ProjectsSection: React.FC = () => {
 						>
 							<ChevronRight />
 						</IconButton>
-					</Box>
-
-					<Box
-						sx={{
-							display: "flex",
-							gap: 1.5,
-							mt: 2,
-							mb: 2,
-							flexShrink: 0,
-						}}
-					>
-						{Array.from({ length: totalPages }).map((_, i) => (
-							<Box
-								key={i}
-								onClick={() => handleDotClick(i)}
-								sx={{
-									width: 12,
-									height: 12,
-									borderRadius: "50%",
-									cursor: "pointer",
-									transition: "all 0.3s ease",
-									backgroundColor:
-										i === currentSlide
-											? theme.palette.primary.main
-											: alpha(theme.palette.primary.main, 0.3),
-									"&:hover": {
-										backgroundColor:
-											i === currentSlide
-												? theme.palette.primary.main
-												: alpha(theme.palette.primary.main, 0.5),
-										transform: "scale(1.2)",
-									},
-								}}
-							/>
-						))}
 					</Box>
 				</>
 			)}
