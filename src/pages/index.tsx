@@ -5,7 +5,6 @@ import * as React from "react";
 import ContactSection from "../components/ContactSection";
 import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
-import ParticleBackground from "../components/ParticleBackground";
 import PolkadotBackground from "../components/PolkadotBackground";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";

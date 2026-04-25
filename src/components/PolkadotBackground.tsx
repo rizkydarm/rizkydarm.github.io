@@ -13,7 +13,7 @@ interface PolkadotBackgroundProps {
 }
 
 const GLOW_RADIUS = 120;
-const DOT_SPACING = 15;
+const DOT_SPACING = 22;  // Increased from 15 (45% fewer dots)
 const DOT_BASE_RADIUS = 1;
 const DOT_MAX_RADIUS = 2;
 
@@ -64,6 +64,8 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const dotsRef = useRef<Dot[]>([]);
 	const mouseRef = useRef({ x: -1000, y: -1000 });
+	const isVisibleRef = useRef(true);
+	const frameCountRef = useRef(0);
 	const theme = useTheme();
 
 	useEffect(() => {
@@ -116,6 +118,19 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
 		const highlightColorStr = `${highlightRgb.r}, ${highlightRgb.g}, ${highlightRgb.b}`;
 
 		const draw = () => {
+			// Skip animation when tab not visible
+			if (!isVisibleRef.current) {
+				animationId = requestAnimationFrame(draw);
+				return;
+			}
+
+			// Skip every 2nd frame (30fps instead of 60fps) - saves ~50% CPU
+			frameCountRef.current++;
+			if (frameCountRef.current % 2 !== 0) {
+				animationId = requestAnimationFrame(draw);
+				return;
+			}
+
 			const { x: mx, y: my } = mouseRef.current;
 			const dpr = window.devicePixelRatio || 1;
 
@@ -202,6 +217,12 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
 		window.addEventListener("touchmove", handleTouchMove);
 		window.addEventListener("touchend", handleTouchEnd);
 
+		// Handle visibility change - pause when tab hidden
+		const handleVisibility = () => {
+			isVisibleRef.current = !document.hidden;
+		};
+		document.addEventListener("visibilitychange", handleVisibility);
+
 		let animationId = requestAnimationFrame(draw);
 
 		return () => {
@@ -210,6 +231,7 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
 			window.removeEventListener("mouseleave", handleMouseLeave);
 			window.removeEventListener("touchmove", handleTouchMove);
 			window.removeEventListener("touchend", handleTouchEnd);
+			document.removeEventListener("visibilitychange", handleVisibility);
 			cancelAnimationFrame(animationId);
 		};
 	}, [theme, isDarkMode]);
@@ -226,6 +248,8 @@ const PolkadotBackground: React.FC<PolkadotBackgroundProps> = ({
 				zIndex: -1,
 				pointerEvents: "none",
 				cursor: "crosshair",
+				willChange: "transform",
+				transform: "translateZ(0)",
 			}}
 		/>
 	);

@@ -12,11 +12,15 @@ interface Particle {
 	alpha: number;
 }
 
+const MAX_PARTICLES = 400;
+const PARTICLES_PER_FRAME = 3;
+
 const ParticleBackground: React.FC = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const animationRef = useRef<number | null>(null);
 	const particlesRef = useRef<Map<number, Particle>>(new Map());
 	const pIndexRef = useRef(0);
+	const isVisibleRef = useRef(true);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -77,16 +81,32 @@ const ParticleBackground: React.FC = () => {
 			}
 		};
 
+		let frameCount = 0;
 		const loop = () => {
+			if (!isVisibleRef.current) {
+				animationRef.current = requestAnimationFrame(loop);
+				return;
+			}
+
+			// Skip every 2nd frame for 30fps (reduces CPU by 50%)
+			frameCount++;
+			if (frameCount % 2 !== 0) {
+				animationRef.current = requestAnimationFrame(loop);
+				return;
+			}
+
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-			for (let i = 0; i < 600; i++) {
-				createDot(
-					canvas.width * Math.random() * 2 - canvas.width / 2,
-					canvas.height * Math.random(),
-					getRandom(-15, 15),
-					getRandom(70, 150),
-				);
+			// Add only a few particles per frame, not 600
+			for (let i = 0; i < PARTICLES_PER_FRAME; i++) {
+				if (particlesRef.current.size < MAX_PARTICLES) {
+					createDot(
+						canvas.width * Math.random() * 2 - canvas.width / 2,
+						canvas.height * Math.random(),
+						getRandom(-15, 15),
+						getRandom(70, 150),
+					);
+				}
 			}
 
 			particlesRef.current.forEach((particle) => {
@@ -96,10 +116,17 @@ const ParticleBackground: React.FC = () => {
 			animationRef.current = requestAnimationFrame(loop);
 		};
 
+		// Handle visibility change
+		const handleVisibility = () => {
+			isVisibleRef.current = !document.hidden;
+		};
+		document.addEventListener("visibilitychange", handleVisibility);
+
 		loop();
 
 		return () => {
 			window.removeEventListener("resize", resize);
+			document.removeEventListener("visibilitychange", handleVisibility);
 			if (animationRef.current) {
 				cancelAnimationFrame(animationRef.current);
 			}
@@ -117,6 +144,8 @@ const ParticleBackground: React.FC = () => {
 				height: "100%",
 				zIndex: -1,
 				pointerEvents: "none",
+				willChange: "transform",
+				transform: "translateZ(0)",
 			}}
 		/>
 	);
