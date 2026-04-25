@@ -1,1 +1,0 @@
-(self.webpackChunkrizky_darm_portfolio=self.webpackChunkrizky_darm_portfolio||[]).push([[522],{8522:function(){}}]);
