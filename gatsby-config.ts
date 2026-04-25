@@ -18,6 +18,15 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-typescript",
     {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        sourceMap: true,
+        autoLabel: "dev-only",
+        labelFormat: `[local]`,
+        cssPropOptimization: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `RizkyDarm Portfolio`,

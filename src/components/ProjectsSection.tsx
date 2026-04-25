@@ -17,6 +17,7 @@ import {
 	Smartphone,
 	Storage,
 	SmartToy,
+	Web,
 } from "@mui/icons-material";
 import {
 	Box,
@@ -97,6 +98,7 @@ const iconMap: Record<string, React.ReactNode> = {
 	postgres: <SiPostgresql size={30} />,
 	supabase: <SiSupabase size={30} />,
 	material: <SiMaterialdesign size={30} />,
+	web: <Web sx={{ fontSize: 30 }} />,
 };
 
 const convertProjectData = (data: ProjectData): Project => ({

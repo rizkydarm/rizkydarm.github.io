@@ -152,7 +152,7 @@ const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => {
 				"&:hover": {
 					backgroundColor: cardHoverBg,
 					borderColor: alpha(theme.palette.primary.main, 0.4),
-					transform: "translateY(-2px)",
+					transform: "scale(1.02)",
 					boxShadow: `0 6px 24px ${alpha(theme.palette.common.black, 0.25)}, inset 0 1px 0 ${alpha(theme.palette.common.white, 0.1)}`,
 				},
 				display: "flex",
