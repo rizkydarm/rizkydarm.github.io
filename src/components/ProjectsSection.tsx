@@ -70,33 +70,33 @@ interface Project {
 }
 
 const iconMap: Record<string, React.ReactNode> = {
-	code: <Code sx={{ fontSize: 40 }} />,
-	smartphone: <Smartphone sx={{ fontSize: 40 }} />,
-	cloud: <Cloud sx={{ fontSize: 40 }} />,
-	psychology: <Psychology sx={{ fontSize: 40 }} />,
-	storage: <Storage sx={{ fontSize: 40 }} />,
-	integration_instructions: <IntegrationInstructions sx={{ fontSize: 40 }} />,
-	chat: <Chat sx={{ fontSize: 40 }} />,
-	security: <Security sx={{ fontSize: 40 }} />,
-	analytics: <Analytics sx={{ fontSize: 40 }} />,
-	payments: <Payments sx={{ fontSize: 40 }} />,
-	language: <Language sx={{ fontSize: 40 }} />,
-	router: <Router sx={{ fontSize: 40 }} />,
-	robot: <SmartToy sx={{ fontSize: 40 }} />,
-	github: <GitHub sx={{ fontSize: 40 }} />,
-	n8n: <SiN8N size={40} />,
-	flutter: <SiFlutter size={40} />,
-	typescript: <SiTypescript size={40} />,
-	javascript: <SiJavascript size={40} />,
-	android: <SiAndroid size={40} />,
-	python: <SiPython size={40} />,
-	firebase: <SiFirebase size={40} />,
-	react: <SiReact size={40} />,
-	docker: <SiDocker size={40} />,
-	gatsby: <SiGatsby size={40} />,
-	postgres: <SiPostgresql size={40} />,
-	supabase: <SiSupabase size={40} />,
-	material: <SiMaterialdesign size={40} />,
+	code: <Code sx={{ fontSize: 30 }} />,
+	smartphone: <Smartphone sx={{ fontSize: 30 }} />,
+	cloud: <Cloud sx={{ fontSize: 30 }} />,
+	psychology: <Psychology sx={{ fontSize: 30 }} />,
+	storage: <Storage sx={{ fontSize: 30 }} />,
+	integration_instructions: <IntegrationInstructions sx={{ fontSize: 30 }} />,
+	chat: <Chat sx={{ fontSize: 30 }} />,
+	security: <Security sx={{ fontSize: 30 }} />,
+	analytics: <Analytics sx={{ fontSize: 30 }} />,
+	payments: <Payments sx={{ fontSize: 30 }} />,
+	language: <Language sx={{ fontSize: 30 }} />,
+	router: <Router sx={{ fontSize: 30 }} />,
+	robot: <SmartToy sx={{ fontSize: 30 }} />,
+	github: <GitHub sx={{ fontSize: 30 }} />,
+	n8n: <SiN8N size={30} />,
+	flutter: <SiFlutter size={30} />,
+	typescript: <SiTypescript size={30} />,
+	javascript: <SiJavascript size={30} />,
+	android: <SiAndroid size={30} />,
+	python: <SiPython size={30} />,
+	firebase: <SiFirebase size={30} />,
+	react: <SiReact size={30} />,
+	docker: <SiDocker size={30} />,
+	gatsby: <SiGatsby size={30} />,
+	postgres: <SiPostgresql size={30} />,
+	supabase: <SiSupabase size={30} />,
+	material: <SiMaterialdesign size={30} />,
 };
 
 const convertProjectData = (data: ProjectData): Project => ({
@@ -168,8 +168,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "center",
-						width: 50,
-						height: 50,
+						width: 36,
+						height: 36,
 						borderRadius: "0.75rem",
 						backgroundColor: alpha(theme.palette.primary.main, 0.1),
 						border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
@@ -187,49 +187,49 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					fontFamily: '"Fira Code", monospace',
 					fontSize: "0.875rem",
 					color: "text.secondary",
-					lineHeight: 1.6,
-					// display: "-webkit-box",
-					// WebkitLineClamp: 3,
-					// WebkitBoxOrient: "vertical",
-					// overflow: "hidden",
-					// textOverflow: "ellipsis",
-					maxHeight: 300,
-					flex: 1,
+					lineHeight: 1.2,
+					display: "-webkit-box",
+					WebkitLineClamp: 4,
+					WebkitBoxOrient: "vertical",
+					overflow: "hidden",
+					textOverflow: "ellipsis"
 				}}
 			>
 				{project.description}
 			</Typography>
 
+			<Box
+				sx={{
+					display: "flex",
+					flexWrap: "wrap",
+					gap: 1
+				}}
+			>
+				{project.tags.map((tag) => (
+					<Chip
+						key={tag}
+						label={tag}
+						size="small"
+						sx={{
+							fontFamily: '"Fira Code", monospace',
+							fontSize: "0.75rem",
+							fontWeight: 500,
+							backgroundColor: alpha(theme.palette.primary.main, 0.1),
+							color: "primary.main",
+							border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+							borderRadius: "0.5rem",
+							"& .MuiChip-label": {
+								px: 1.5,
+							},
+						}}
+					/>
+				))}
+			</Box>
+
 			{/* Bottom row: Tags + Date (left) and GitHub button (right) */}
 			<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", mt: "auto", gap: 1 }}>
 				<Box sx={{ display: "flex", flexDirection: "column", gap: 1, justifyContent: "space-between" }}>
-					<Box
-						sx={{
-							display: "flex",
-							flexWrap: "wrap",
-							gap: 1,
-						}}
-					>
-						{project.tags.map((tag) => (
-							<Chip
-								key={tag}
-								label={tag}
-								size="small"
-								sx={{
-									fontFamily: '"Fira Code", monospace',
-									fontSize: "0.75rem",
-									fontWeight: 500,
-									backgroundColor: alpha(theme.palette.primary.main, 0.1),
-									color: "primary.main",
-									border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
-									borderRadius: "0.5rem",
-									"& .MuiChip-label": {
-										px: 1.5,
-									},
-								}}
-							/>
-						))}
-					</Box>
+					
 
 					{/* Date below tags */}
 					<Typography
@@ -246,28 +246,26 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 				</Box>
 
 				<Box sx={{ display: "flex", gap: 1 }}>
-					{project.images && project.images.length > 0 && (
-						<IconButton
-							onClick={handleOpenImages}
-							sx={{
-								width: 36,
-								height: 36,
-								borderRadius: "0.5rem",
-								border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
-								backgroundColor: alpha(theme.palette.background.paper, 0.5),
-								color: "primary.main",
-								transition: "all 0.2s ease",
-								flexShrink: 0,
-								"&:hover": {
-									backgroundColor: alpha(theme.palette.primary.main, 0.15),
-									borderColor: alpha(theme.palette.primary.main, 0.5),
-									transform: "scale(1.05)",
-								},
-							}}
-						>
-							<PhotoLibrary sx={{ fontSize: 20 }} />
-						</IconButton>
-					)}
+					<IconButton
+						onClick={handleOpenImages}
+						sx={{
+							width: 36,
+							height: 36,
+							borderRadius: "0.5rem",
+							border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+							backgroundColor: alpha(theme.palette.background.paper, 0.5),
+							color: "primary.main",
+							transition: "all 0.2s ease",
+							flexShrink: 0,
+							"&:hover": {
+								backgroundColor: alpha(theme.palette.primary.main, 0.15),
+								borderColor: alpha(theme.palette.primary.main, 0.5),
+								transform: "scale(1.05)",
+							},
+						}}
+					>
+						<PhotoLibrary sx={{ fontSize: 20 }} />
+					</IconButton>
 					<IconButton
 						href={project.githubUrl}
 						target="_blank"
@@ -321,8 +319,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 						</IconButton>
 					</Box>
 					<Box sx={{ flex: 1, overflow: "auto" }}>
+					{project.images && project.images.length > 0 ? (
 						<ImageList variant="masonry" cols={2} gap={16}>
-							{project.images?.map((img, idx) => (
+							{project.images.map((img, idx) => (
 								<ImageListItem key={idx}>
 									<img
 										src={img}
@@ -333,7 +332,14 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 								</ImageListItem>
 							))}
 						</ImageList>
-					</Box>
+					) : (
+						<Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
+							<Typography variant="body1" sx={{ color: "text.secondary", fontFamily: '"Roboto Mono", monospace' }}>
+								No images
+							</Typography>
+						</Box>
+					)}
+				</Box>
 				</Box>
 			</Dialog>
 		</Box>
@@ -474,9 +480,6 @@ const ProjectsSection: React.FC = () => {
 							display: "flex",
 							alignItems: "center",
 							gap: 0,
-							border: `1px solid red`,
-							// mb: 2,
-							
 							px: 0,
 							py: 0,
 						}}
@@ -501,7 +504,7 @@ const ProjectsSection: React.FC = () => {
 										setCurrentSlide(e.detail.slide);
 									}}
 									className="glider-projects"
-									style={{ height: "100%" }}
+									// style={{ height: "100%" }}
 								>
 									{projectPages.map((page, idx) => (
 										<Box
@@ -511,7 +514,6 @@ const ProjectsSection: React.FC = () => {
 												gridTemplateColumns: "repeat(3, 1fr)",
 												gridTemplateRows: "repeat(2, 1fr)",
 												height: "100%",
-												border: `1px solid blue`,
 												minHeight: 0,
 											}}
 										>
