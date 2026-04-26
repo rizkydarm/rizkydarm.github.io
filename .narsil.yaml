@@ -1,0 +1,29 @@
+version: "1.0"
+preset: "minimal"
+
+tools:
+  categories:
+    Security:
+      enabled: false
+    SupplyChain:
+      enabled: false
+    CallGraph:
+      enabled: false
+    Graph:
+      enabled: false
+    Remote: 
+      enabled: false
+  overrides:
+    neural_search:
+      enabled: false
+      reason: "Too slow for interactive use"
+    get_blame:
+      enabled: false
+      reason: "Too slow on this large repo"
+
+performance:
+  max_tool_count: 20  
+  startup_latency_ms: 10
+  filtering_latency_ms: 1
+    
+    
