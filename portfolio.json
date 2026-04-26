@@ -1,9 +1,9 @@
 {
   "projects": [
     {
-      "icon": "web",
+      "icon": "smartphone",
       "title": "This Portfolio Web",
-      "description": "My personal portfolio website built with Gatsby and React.",
+      "description": "My personal portfolio website built with Gatsby and React. Features a modern design with glassmorphism effects, smooth animations, and responsive layout.",
       "githubUrl": "https://github.com/rizkydarm/rizkydarm.github.io",
       "tags": [
         "React",
@@ -13,7 +13,7 @@
       "date": "April 2026"
     },
     {
-      "icon": "web",
+      "icon": "integration_instructions",
       "title": "Eky Chat AI ",
       "description": "Cross-platform AI Chat built with Tauri for Desktop and Mobile, React for Web",
       "githubUrl": "https://github.com/rizkydarm/Eky-Chat-AI-TauriNextTS",
@@ -25,7 +25,7 @@
       "date": "October 2025"
     },
     {
-      "icon": "robot",
+      "icon": "code",
       "title": "Clustering AI Agents Skills",
       "description": "Python Program for clustering AI agent skills with ML Scikit-learn",
       "githubUrl": "https://github.com/rizkydarm/ClusteringAIAgentsSkills-Python",
@@ -64,7 +64,7 @@
     {
       "icon": "smartphone",
       "title": "Eky CinemaTix",
-      "description": "IOS App for purchase cinema ticket built with UIKit Swift.",
+      "description": "Scalable ETL pipeline for processing millions of records daily. Orchestrates data flow from multiple sources to PostgreSQL warehouse with Docker containerization.",
       "githubUrl": "https://github.com/rizkydarm/EkyCinemaTix-UIKitSwift",
       "tags": [
         "Swift",
