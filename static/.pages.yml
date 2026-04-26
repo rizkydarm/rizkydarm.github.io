@@ -1,5 +1,5 @@
 media:
-  input: media
+  input: static/media
   output: /media
 
 components:
@@ -16,7 +16,7 @@ content:
   - name: portfolio
     label: Portfolio Data
     type: file
-    path: static/portfolio.json
+    path: portfolio.json
     format: json
     list: false
     fields:
