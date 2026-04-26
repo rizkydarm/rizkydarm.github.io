@@ -79,17 +79,17 @@
       "description": "Full-stack messaging application with Socket.io for real-time communication. Features include group chats, message persistence with Redis, and typing indicators.",
       "githubUrl": "https://github.com/rizkydarm/EkyWeather-UIKitSwift",
       "tags": [
-        "Socket.io",
-        "Express",
-        "Redis"
+        "Open Weather",
+        "Swift",
+        "UIKit"
       ],
       "date": "August 2025"
     },
     {
-      "icon": "security",
-      "title": "Auth Service",
+      "icon": "smartphone",
+      "title": "Study Japanese",
       "description": "Microservice handling authentication and authorization with OAuth2 and JWT. Provides secure token management, session handling, and multi-provider login support.",
-      "githubUrl": "https://github.com/rizkydarm/auth-service",
+      "githubUrl": "https://github.com/rizkydarm/BelajarJepang-Flutter",
       "tags": [
         "OAuth2",
         "JWT",
