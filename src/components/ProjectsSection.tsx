@@ -30,10 +30,7 @@ import {
 	Typography,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
-import React, { useEffect, useRef, useState } from "react";
-import Glider from "react-glider";
-import type { GliderMethods } from "react-glider/dist/types";
-import "glider-js/glider.min.css";
+import React, { useEffect, useState } from "react";
 import {
 	SiAndroid,
 	SiDocker,
@@ -355,8 +352,7 @@ const chunkArray = <T,>(arr: T[], size: number): T[][] =>
 
 const ProjectsSection: React.FC = () => {
 	const theme = useTheme();
-	const gliderRef = useRef<GliderMethods>(null);
-	const [currentSlide, setCurrentSlide] = React.useState(0);
+	const [currentSlide, setCurrentSlide] = useState(0);
 	const [projects, setProjects] = useState<Project[]>([]);
 	const [loading, setLoading] = useState(true);
 
@@ -376,18 +372,18 @@ const ProjectsSection: React.FC = () => {
 
 	const handlePrev = () => {
 		if (currentSlide > 0) {
-			gliderRef.current?.scrollItem(currentSlide - 1);
+			setCurrentSlide(currentSlide - 1);
 		}
 	};
 
 	const handleNext = () => {
 		if (currentSlide < totalPages - 1) {
-			gliderRef.current?.scrollItem(currentSlide + 1);
+			setCurrentSlide(currentSlide + 1);
 		}
 	};
 
 	const handleDotClick = (page: number) => {
-		gliderRef.current?.scrollItem(page);
+		setCurrentSlide(page);
 	};
 
 	const arrowBtnSx = {
@@ -495,36 +491,32 @@ const ProjectsSection: React.FC = () => {
 						</IconButton>
 
 						<Box sx={{ flex: 1, overflow: "hidden", height: "100%" }}>
-							<Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-								<Glider
-									ref={gliderRef}
-									draggable={false}
-									scrollLock
-									slidesToShow={1}
-									slidesToScroll={1}
-									onSlideVisible={(e) => {
-										setCurrentSlide(e.detail.slide);
-									}}
-									className="glider-projects"
-									// style={{ height: "100%" }}
-								>
-									{projectPages.map((page, idx) => (
-										<Box
-											key={idx}
-											sx={{
-												display: "grid",
-												gridTemplateColumns: "repeat(3, 1fr)",
-												gridTemplateRows: "repeat(2, 1fr)",
-												height: "100%",
-												minHeight: 0,
-											}}
-										>
-											{page.map((project) => (
-												<ProjectCard key={project.title} project={project} />
-											))}
-										</Box>
-									))}
-								</Glider>
+							<Box
+								sx={{
+									display: "flex",
+									transform: `translateX(-${currentSlide * 100}%)`,
+									transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+									height: "100%",
+								}}
+							>
+								{projectPages.map((page, idx) => (
+									<Box
+										key={idx}
+										sx={{
+											flexShrink: 0,
+											width: "100%",
+											display: "grid",
+											gridTemplateColumns: "repeat(3, 1fr)",
+											gridTemplateRows: "repeat(2, 1fr)",
+											gap: 2,
+											p: 2,
+										}}
+									>
+										{page.map((project) => (
+											<ProjectCard key={project.title} project={project} />
+										))}
+									</Box>
+								))}
 							</Box>
 						</Box>
 

@@ -17,6 +17,7 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({
 	toggleTheme,
 }) => {
 	const [scrolled, setScrolled] = useState(false);
+	const [activeSection, setActiveSection] = useState("home");
 	const theme = useTheme();
 
 	useEffect(() => {
@@ -25,6 +26,38 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({
 		};
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	// Track active section using IntersectionObserver
+	useEffect(() => {
+		const sections = ["home", "projects", "skills", "contact"];
+		const observers: IntersectionObserver[] = [];
+
+		sections.forEach((section) => {
+			const element = document.getElementById(section);
+			if (!element) return;
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+							setActiveSection(section);
+						}
+					});
+				},
+				{
+					threshold: [0.5],
+					rootMargin: "-50px 0px -50px 0px",
+				}
+			);
+
+			observer.observe(element);
+			observers.push(observer);
+		});
+
+		return () => {
+			observers.forEach((observer) => observer.disconnect());
+		};
 	}, []);
 
 	const navItems = ["Home", "Projects", "Skills", "Contact"];
@@ -128,31 +161,59 @@ const GlassNavbar: React.FC<GlassNavbarProps> = ({
 
 					{/* Center: Navigation Links + Theme Toggle */}
 					<Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-						{navItems.map((item) => (
-							<Button
-								key={item}
-								onClick={() => handleNavClick(item)}
-								sx={{
-									px: 2,
-									py: 0.5,
-									borderRadius: "0.75rem",
-									fontSize: "0.875rem",
-									fontWeight: 500,
-									color: textColor,
-									textTransform: "none",
-									minWidth: "auto",
-									transition: "all 0.3s",
-									cursor: "pointer",
-									"&:hover": {
-										color: textHoverColor,
-										backgroundColor: navHoverBg,
-										transform: "scale(1.1)",
-									},
-								}}
-							>
-								{item}
-							</Button>
-						))}
+						{navItems.map((item) => {
+							const isActive = activeSection === item.toLowerCase();
+							return (
+								<Button
+									key={item}
+									onClick={() => handleNavClick(item)}
+									sx={{
+										px: 2,
+										py: 0.5,
+										borderRadius: "0.75rem",
+										fontSize: "0.875rem",
+										fontWeight: isActive ? 600 : 500,
+										color: isActive ? "primary.main" : textColor,
+										textTransform: "none",
+										minWidth: "auto",
+										transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+										cursor: "pointer",
+										position: "relative",
+										"&::after": isActive
+											? {
+													content: '""',
+													position: "absolute",
+													bottom: 2,
+													left: "50%",
+													transform: "translateX(-50%)",
+													width: "20%",
+													height: 2,
+													borderRadius: "2px",
+													backgroundColor: "primary.main",
+													animation: "fadeInUp 0.3s ease",
+												}
+											: {},
+										"&:hover": {
+											color: isActive ? "primary.main" : textHoverColor,
+											backgroundColor: navHoverBg,
+											transform: "scale(1.1)",
+										},
+										"@keyframes fadeInUp": {
+											"0%": {
+												opacity: 0,
+												transform: "translateX(-50%) translateY(4px)",
+											},
+											"100%": {
+												opacity: 1,
+												transform: "translateX(-50%) translateY(0)",
+											},
+										},
+									}}
+								>
+									{item}
+								</Button>
+							);
+						})}
 
 						{/* Theme Toggle */}
 						<IconButton

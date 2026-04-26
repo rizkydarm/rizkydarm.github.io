@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import type { HeadFC, PageProps } from "gatsby";
 import * as React from "react";
 import ContactSection from "../components/ContactSection";
+import FloatingShapesBackground from "../components/FloatingShapesBackground";
 import GlassNavbar from "../components/GlassNavbar";
 import HeroSection from "../components/HeroSection";
 import PolkadotBackground from "../components/PolkadotBackground";
@@ -67,6 +68,9 @@ const IndexPage: React.FC<PageProps> = () => {
 			<GlassNavbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
 			{/* Main Content with Full-Page Scroll */}
+			{/* Global floating shapes background */}
+			<FloatingShapesBackground />
+
 			<Box
 				sx={{
 					height: "100vh",
