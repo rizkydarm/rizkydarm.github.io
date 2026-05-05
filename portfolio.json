@@ -2,6 +2,19 @@
   "projects": [
     {
       "icon": "smartphone",
+      "title": "Numpang - Mini Map App ",
+      "description": "App has features live tracking my location, tagging location, forward and reverse geocoding for searching location",
+      "githubUrl": "https://github.com/rizkydarm/Numpang-Flutter",
+      "tags": [
+        "Flutter",
+        "Map",
+        "Android",
+        "IOS"
+      ],
+      "date": "May 2026"
+    },
+    {
+      "icon": "smartphone",
       "title": "This Portfolio Web",
       "description": "My personal portfolio website built with Gatsby and React. Features a modern design with glassmorphism effects, smooth animations, and responsive layout.",
       "githubUrl": "https://github.com/rizkydarm/rizkydarm.github.io",
@@ -75,21 +88,21 @@
     },
     {
       "icon": "chat",
-      "title": "Eky Weather",
+      "title": "Real-time Chat App",
       "description": "Full-stack messaging application with Socket.io for real-time communication. Features include group chats, message persistence with Redis, and typing indicators.",
-      "githubUrl": "https://github.com/rizkydarm/EkyWeather-UIKitSwift",
+      "githubUrl": "https://github.com/rizkydarm/chat-app",
       "tags": [
-        "Open Weather",
-        "Swift",
-        "UIKit"
+        "Socket.io",
+        "Express",
+        "Redis"
       ],
       "date": "August 2025"
     },
     {
-      "icon": "smartphone",
-      "title": "Study Japanese",
+      "icon": "security",
+      "title": "Auth Service",
       "description": "Microservice handling authentication and authorization with OAuth2 and JWT. Provides secure token management, session handling, and multi-provider login support.",
-      "githubUrl": "https://github.com/rizkydarm/BelajarJepang-Flutter",
+      "githubUrl": "https://github.com/rizkydarm/auth-service",
       "tags": [
         "OAuth2",
         "JWT",
